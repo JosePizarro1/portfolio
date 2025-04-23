@@ -11,44 +11,48 @@ export default function Projects() {
 
   const projects = [
     {
-      title: "E-Commerce Dashboard",
+      title: "Caja System",
       description:
-        "A responsive admin dashboard for an e-commerce platform with analytics, inventory management, and order processing.",
-      image: "/placeholder.svg?height=400&width=600",
-      tags: ["React", "Next.js", "Tailwind CSS", "Chart.js"],
-      liveUrl: "#",
-      githubUrl: "#",
+        "A comprehensive system for managing income and expense flows, personnel, an expense calendar, and full accounting of payments.",
+      image: "/img/imagen2.png",
+      tags: ["Django", "Bootstrap", "Tailwind CSS", "Gmail API", "Google Drive API", "SQLite3"],
+      liveUrl: "https://cajaegatur.pythonanywhere.com/",
+      githubUrl: "https://github.com/JosePizarro1/cajachica",
+      youtubeUrl: "",
     },
     {
-      title: "Travel Booking App",
+      title: "GTI Internal Process Management Egatur",
       description:
-        "A modern travel booking application with destination search, booking management, and user authentication.",
-      image: "/placeholder.svg?height=400&width=600",
-      tags: ["React", "Redux", "Tailwind CSS", "Firebase"],
-      liveUrl: "#",
-      githubUrl: "#",
+        "An end-to-end internal workflow system for administrative documents, featuring digital signatures and role-based access control.",
+      image: "/img/imagen1.png",
+      tags: ["Django", "Bootstrap", "Tailwind CSS", "SQLite3", "Gmail API", "Google Drive API"],
+      liveUrl: "https://gti.egatur.edu.pe/",
+      githubUrl: "https://github.com/JosePizarro1/gti",
+      youtubeUrl: "",
     },
     {
-      title: "Recipe Finder",
+      title: "Gym Management/Academy System",
       description:
-        "A web application that allows users to search for recipes based on ingredients, dietary restrictions, and meal types.",
-      image: "/placeholder.svg?height=400&width=600",
-      tags: ["Next.js", "API Integration", "Responsive Design"],
-      liveUrl: "#",
-      githubUrl: "#",
+        "A responsive gym management /Academy platform with QR-based attendance, client management, payment processing, and membership tracking.",
+      image: "/img/imagen3.png",
+      tags: ["Django", "Bootstrap", "Tailwind CSS", "SQLite3"],
+      liveUrl: "https://demogym.pythonanywhere.com/",
+      githubUrl: "https://github.com/JosePizarro1/Gym",
+      youtubeUrl: "",
     },
     {
-      title: "Portfolio Website",
+      title: "NFT Chest Adventure Game MEDIEVAL",
       description:
-        "A personal portfolio website showcasing projects, skills, and contact information with a modern design.",
-      image: "/placeholder.svg?height=400&width=600",
-      tags: ["React", "Framer Motion", "Tailwind CSS"],
-      liveUrl: "#",
-      githubUrl: "#",
+        "A responsive NFT-based game with chest mechanics and character logic for gold creation. Reached over 1,800 active users during its peak phase.",
+      image: "/img/imagen4.png",
+      tags: ["Django", "Bootstrap", "Tailwind CSS", "SQLite3"],
+      liveUrl: "https://medievalnft.pythonanywhere.com/login/?next=/",
+      githubUrl: "",
+      youtubeUrl: "https://youtu.be/Cg1xWz0_uwk",
     },
-  ]
+  ];
 
-  const containerVariants = {
+const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -137,6 +141,18 @@ export default function Projects() {
                     <Github size={16} />
                     Source Code
                   </a>
+
+                  {project.youtubeUrl && (
+                    <a
+                      href={project.youtubeUrl}
+                      className="flex items-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ArrowRight size={16} />
+                      YouTube
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>
@@ -153,7 +169,7 @@ export default function Projects() {
             href="#"
             className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
           >
-            View All Projects
+            More projects in progress
             <ArrowRight size={16} />
           </a>
         </motion.div>

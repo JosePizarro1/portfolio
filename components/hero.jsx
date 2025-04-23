@@ -18,9 +18,9 @@ export default function Hero() {
     if (!textElement) return;
 
     const roles = [
-      "Frontend Developer",
-      "Next.js Specialist",
-      "Tailwind CSS Expert",
+      "FullStack Developer",
+      "Django Specialist",
+      "Tailwind and Bootstrap Expert",
     ];
     let roleIndex = 0;
     let charIndex = 0;
@@ -62,7 +62,7 @@ export default function Hero() {
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
           Hi, I'm <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
-            Essam Mohamed
+            Jose Pizarro
           </span>
         </h1>
 
@@ -71,8 +71,7 @@ export default function Hero() {
         </div>
 
         <p className={`max-w-2xl ${TEXT_TERTIARY} mb-10 mx-auto`}>
-          I create engaging, responsive, and user-friendly web experiences
-          with modern technologies and clean code.
+        I  develop end-to-end web applications—combining frontend interactivity with robust backend services—to deliver engaging, responsive, and scalable solutions with clean, maintainable code
         </p>
 
         <div className="flex justify-center items-center flex-col sm:flex-row gap-4">

@@ -33,7 +33,7 @@ export default function Contact() {
                     href="mailto:Essam@example.com"
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    essam@example.com
+                    josepizarroarca@gmail.com
                   </a>
                 </div>
               </div>
@@ -48,7 +48,7 @@ export default function Contact() {
                     href="tel:+1234567890"
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    +1 (234) 567-890
+                    +51 945770325
                   </a>
                 </div>
               </div>
@@ -59,7 +59,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-medium mb-1">Location</h4>
-                  <p className="text-gray-400">New York, NY, United States</p>
+                  <p className="text-gray-400">Tacna,Perú</p>
                 </div>
               </div>
             </div>
@@ -144,7 +144,7 @@ export default function Contact() {
                     name="name"
                     required
                     className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-                    placeholder="Essam Mohamed"
+                    placeholder="Reinal Rex"
                   />
                 </div>
                 <div>

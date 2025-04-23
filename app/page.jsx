@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Navbar />
-      <div className={`transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
+      <div className={`transition-opacity duration-400 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
         <Hero />
         <About />
         <Skills />

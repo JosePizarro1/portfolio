@@ -13,7 +13,12 @@ import {
   SiFirebase,
   SiFramer,
   SiSass,
+  SiDjango,
+  SiBootstrap,
+  
 } from "react-icons/si"
+import { PiMicrosoftPowerpointLogo } from "react-icons/pi";
+
 import { TbBrandReactNative } from "react-icons/tb"
 import { MdDesignServices } from "react-icons/md"
 
@@ -46,14 +51,14 @@ export default function Skills() {
   }, [])
 
   const skills = [
-    { name: "HTML5", icon: <FaHtml5 className="text-[#E34F26]" size={36} /> },
-    { name: "CSS3", icon: <FaCss3Alt className="text-[#1572B6]" size={36} /> },
+    { name: "HTML", icon: <FaHtml5 className="text-[#E34F26]" size={36} /> },
+    { name: "CSS", icon: <FaCss3Alt className="text-[#1572B6]" size={36} /> },
     { name: "JavaScript", icon: <FaJs className="text-[#F7DF1E]" size={36} /> },
     { name: "React", icon: <FaReact className="text-[#61DAFB]" size={36} /> },
     { name: "Next.js", icon: <SiNextdotjs size={36} /> },
-    { name: "Tailwind CSS", icon: <SiTailwindcss className="text-[#06B6D4]" size={36} /> },
-    { name: "WordPress", icon: <FaWordpress className="text-[#3178C6]" size={36} /> },
-    { name: "UI/UX Design", icon: <MdDesignServices className="text-purple-500" size={36} /> },
+    { name: "Tailwind", icon: <SiTailwindcss className="text-[#06B6D4]" size={36} /> },
+    { name: "Django", icon: <SiDjango className="text-white" size={36} /> },
+    { name: "Bootstrap", icon: <SiBootstrap className="text-[#1572B6]" size={36} /> },
   ]
 
   const technologies = [
@@ -62,15 +67,15 @@ export default function Skills() {
     { name: "Figma", icon: <FaFigma className="text-[#F24E1E]" size={24} /> },
     // { name: "React Native", icon: <TbBrandReactNative className="text-[#61DAFB]" size={24} /> },
     // { name: "GraphQL", icon: <SiGraphql className="text-[#E10098]" size={24} /> },
-    { name: "Redux", icon: <SiRedux className="text-[#764ABC]" size={24} /> },
+    //{ name: "Redux", icon: <SiRedux className="text-[#764ABC]" size={24} /> },
     // { name: "Jest", icon: <SiJest className="text-[#C21325]" size={24} /> },
-    { name: "Webpack", icon: <SiWebpack className="text-[#8DD6F9]" size={24} /> },
+    //{ name: "Webpack", icon: <SiWebpack className="text-[#8DD6F9]" size={24} /> },
     { name: "npm", icon: <FaNpm className="text-[#CB3837]" size={24} /> },
-    { name: "Vercel", icon: <SiVercel size={24} /> },
+    //{ name: "Vercel", icon: <SiVercel size={24} /> },
     // { name: "Firebase", icon: <SiFirebase className="text-[#FFCA28]" size={24} /> },
-    // { name: "Framer", icon: <SiFramer size={24} /> },
-    { name: "SASS/SCSS", icon: <SiSass className="text-[#CC6699]" size={24} /> },
-  ]
+     { name: "Framer", icon: <SiFramer size={24} /> },
+     { name: "Power BI", icon: <PiMicrosoftPowerpointLogo className="text-[#F2C811]" size={24} /> },  
+    ]
 
   return (
     <section id="skills" className="py-20 bg-gray-950">

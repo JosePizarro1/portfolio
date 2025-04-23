@@ -134,10 +134,10 @@ export default function Footer() {
                   </svg>
                 </span>
                 <a
-                  href="mailto:Essam@example.com"
+                  href="mailto:josepizarroarca@gmail.com"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Essam@example.com
+                  josepizarroarca@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-2">
@@ -159,7 +159,7 @@ export default function Footer() {
                   href="tel:+1234567890"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  +1 (234) 567-890
+                  +51 945770325
                 </a>
               </li>
               <li className="flex items-center gap-2">
@@ -175,7 +175,7 @@ export default function Footer() {
                   </svg>
                 </span>
                 <span className="text-gray-400">
-                  New York, NY, United States
+                  Tacna,Perú
                 </span>
               </li>
             </ul>
@@ -184,7 +184,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} Essam Mohamed. All rights reserved.
+            © {new Date().getFullYear()}Jose Pizarro. All rights reserved.
           </p>
 
           <motion.button
