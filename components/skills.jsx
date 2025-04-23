@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef, useEffect, useState } from "react"
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt, FaGithub, FaFigma, FaNpm, FaWordpress } from "react-icons/fa"
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt, FaGithub, FaFigma, FaNpm, FaFire } from "react-icons/fa"
 import {
   SiNextdotjs,
   SiTailwindcss,
@@ -104,8 +104,13 @@ export default function Skills() {
               {skills.map((skill) => (
                 <div
                   key={skill.name}
-                  className="flex flex-col items-center justify-center p-6 bg-gray-800 rounded-xl hover:bg-gray-700 transition-all duration-300 hover:-translate-y-2"
+                  className="relative flex flex-col items-center justify-center p-6 bg-gray-800 rounded-xl hover:bg-gray-700 transition-all duration-300 hover:-translate-y-2"
                 >
+                  {/* Flame icon for Django */}
+                  {skill.name === 'Django' && (
+                    <FaFire className="absolute top-2 right-2 text-red-500 animate-pulse duration-900" size={22} />
+                  )}
+
                   <div className="mb-4">{skill.icon}</div>
                   <h4 className="font-medium text-center">{skill.name}</h4>
                 </div>

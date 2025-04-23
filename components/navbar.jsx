@@ -52,7 +52,7 @@ export default function Navbar() {
           {/* Social Icons */}
           <div className="hidden md:flex items-center space-x-4">
             <a
-              href="https://github.com"
+              href="https://github.com/JosePizarro1/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-all hover:-translate-y-1 duration-200"
@@ -60,7 +60,7 @@ export default function Navbar() {
               <Github size={20} />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/jose-alfredo-pizarro-rabanal-56aaaa189/?trk=public-profile-join-page"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-all hover:-translate-y-1 duration-200"
