@@ -15,6 +15,8 @@ import {
   SiSass,
   SiDjango,
   SiBootstrap,
+  SiMysql,
+  SiSqlite,
   
 } from "react-icons/si"
 import { PiMicrosoftPowerpointLogo } from "react-icons/pi";
@@ -59,6 +61,8 @@ export default function Skills() {
     { name: "Tailwind", icon: <SiTailwindcss className="text-[#06B6D4]" size={36} /> },
     { name: "Django", icon: <SiDjango className="text-white" size={36} /> },
     { name: "Bootstrap", icon: <SiBootstrap className="text-[#1572B6]" size={36} /> },
+    { name: "MySQL", icon: <SiMysql className="text-[#4479A1]" size={36} /> },
+
   ]
 
   const technologies = [
@@ -71,11 +75,14 @@ export default function Skills() {
     // { name: "Jest", icon: <SiJest className="text-[#C21325]" size={24} /> },
     //{ name: "Webpack", icon: <SiWebpack className="text-[#8DD6F9]" size={24} /> },
     { name: "npm", icon: <FaNpm className="text-[#CB3837]" size={24} /> },
-    //{ name: "Vercel", icon: <SiVercel size={24} /> },
+    { name: "Vercel", icon: <SiVercel size={24} /> },
     // { name: "Firebase", icon: <SiFirebase className="text-[#FFCA28]" size={24} /> },
      { name: "Framer", icon: <SiFramer size={24} /> },
-     { name: "Power BI", icon: <PiMicrosoftPowerpointLogo className="text-[#F2C811]" size={24} /> },  
+     { name: "Power BI", icon: <PiMicrosoftPowerpointLogo className="text-[#F2C811]" size={24} /> }, 
+     { name: "SQLite", icon: <SiSqlite className="text-[#07405E]" size={24} /> },
+ 
     ]
+    
 
   return (
     <section id="skills" className="py-20 bg-gray-950">
