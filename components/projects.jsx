@@ -50,7 +50,20 @@ export default function Projects() {
       githubUrl: "",
       youtubeUrl: "https://youtu.be/Cg1xWz0_uwk",
     },
+    {
+      title: "Cafeteria Management System with Inventory and Kardex",
+      description:
+        "A fully responsive web application. This system manages a complete product inventory with Kardex tracking between warehouses. It includes sales functionality to calculate profits, monitor stock levels, and detect shortages. Ideal for cafeterias seeking full traceability, operational efficiency, and stock control.",
+      image: "/img/cafeteria.png",
+      tags: ["Django", "Bootstrap", "Tailwind CSS", "SQLite3"],
+      liveUrl: "https://cafeteria.egatur.edu.pe/",
+      githubUrl: "https://github.com/JosePizarro1/cafeteria.git",
+      youtubeUrl: "",
+    },
   ];
+
+
+
 
 const containerVariants = {
     hidden: { opacity: 0 },

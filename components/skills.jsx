@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from "react"
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt, FaGithub, FaFigma, FaNpm, FaFire } from "react-icons/fa"
+import { TbBrandFlutter } from "react-icons/tb";
 import {
   SiNextdotjs,
   SiTailwindcss,
@@ -17,6 +18,7 @@ import {
   SiBootstrap,
   SiMysql,
   SiSqlite,
+  SiFlutter
   
 } from "react-icons/si"
 import { PiMicrosoftPowerpointLogo } from "react-icons/pi";
@@ -62,6 +64,7 @@ export default function Skills() {
     { name: "Django", icon: <SiDjango className="text-white" size={36} /> },
     { name: "Bootstrap", icon: <SiBootstrap className="text-[#1572B6]" size={36} /> },
     { name: "MySQL", icon: <SiMysql className="text-[#4479A1]" size={36} /> },
+    { name: "Flutter", icon: <SiFlutter className="text-[#4479A1]" size={36} /> },
 
   ]
 
@@ -80,7 +83,7 @@ export default function Skills() {
      { name: "Framer", icon: <SiFramer size={24} /> },
      { name: "Power BI", icon: <PiMicrosoftPowerpointLogo className="text-[#F2C811]" size={24} /> }, 
      { name: "SQLite", icon: <SiSqlite className="text-[#07405E]" size={24} /> },
- 
+    { name: "FlutterFlow", icon: <TbBrandFlutter className="text-[#800080]" size={24} /> },
     ]
     
 
