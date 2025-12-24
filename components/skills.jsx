@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef, useEffect, useState } from "react"
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt, FaGithub, FaFigma, FaNpm, FaFire } from "react-icons/fa"
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt, FaGithub, FaFigma, FaNpm, FaFire, FaProjectDiagram } from "react-icons/fa"
 import { TbBrandFlutter } from "react-icons/tb";
 import {
   SiNextdotjs,
@@ -18,8 +18,9 @@ import {
   SiBootstrap,
   SiMysql,
   SiSqlite,
-  SiFlutter
-  
+  SiFlutter,
+  SiFastapi,
+  SiPostgresql,
 } from "react-icons/si"
 import { PiMicrosoftPowerpointLogo } from "react-icons/pi";
 
@@ -62,6 +63,9 @@ export default function Skills() {
     { name: "Next.js", icon: <SiNextdotjs size={36} /> },
     { name: "Tailwind", icon: <SiTailwindcss className="text-[#06B6D4]" size={36} /> },
     { name: "Django", icon: <SiDjango className="text-white" size={36} /> },
+    { name: "FastAPI", icon: <SiFastapi className="text-[#009688]" size={36} /> },
+    { name: "PostgreSQL", icon: <SiPostgresql className="text-[#336791]" size={36} /> },
+    { name: "LangGraph", icon: <FaProjectDiagram className="text-gray-400" size={36} /> },
     { name: "Bootstrap", icon: <SiBootstrap className="text-[#1572B6]" size={36} /> },
     { name: "MySQL", icon: <SiMysql className="text-[#4479A1]" size={36} /> },
     { name: "Flutter", icon: <SiFlutter className="text-[#4479A1]" size={36} /> },
@@ -117,9 +121,9 @@ export default function Skills() {
                   className="relative flex flex-col items-center justify-center p-6 bg-gray-800 rounded-xl hover:bg-gray-700 transition-all duration-300 hover:-translate-y-2"
                 >
                   {/* Flame icon for Django */}
-                  {skill.name === 'Django' && (
+                  {skill.name === 'Django' || skill.name === 'FastAPI' || skill.name === 'PostgreSQL' ? (
                     <FaFire className="absolute top-2 right-2 text-red-500 animate-pulse duration-900" size={22} />
-                  )}
+                  ) : null}
 
                   <div className="mb-4">{skill.icon}</div>
                   <h4 className="font-medium text-center">{skill.name}</h4>

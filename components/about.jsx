@@ -34,7 +34,7 @@ export default function About() {
           <div className="text-center mb-10">
             <h2 className="text-sm uppercase tracking-wider text-purple-500 mb-2">About Me</h2>
             <h3 className="text-3xl md:text-4xl font-bold mb-6">
-              FullStack Developer with a passion for creating beautiful solutions
+              FullStack Developer passionate about creating beautiful solutions and AI agents
             </h3>
             <div className="w-20 h-1 bg-purple-500 mx-auto"></div>
           </div>
