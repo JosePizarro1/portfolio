@@ -1,6 +1,46 @@
+"use client"
+import { useState } from "react"
 import { Send, Mail, Phone, MapPin } from "lucide-react";
+import emailjs from "@emailjs/browser"
 
 export default function Contact() {
+  const [isSending, setIsSending] = useState(false)
+  const [status, setStatus] = useState(null)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setIsSending(true)
+    setStatus(null)
+    const form = e.currentTarget
+    const data = new FormData(form)
+
+    const name = data.get("name")
+    const email = data.get("email")
+    const subject = data.get("subject")
+    const message = data.get("message")
+
+    try {
+      await emailjs.send(
+        "service_e2o17jm",
+        "template_fkbeswe",
+        {
+          from_name: name,
+          from_email: email,
+          subject,
+          message,
+          to_email: "josepizarroarca@gmail.com",
+        },
+        "hHHqAdrQm6-99WDyd"
+      )
+      setStatus({ ok: true, msg: "Message sent successfully. I'll get back to you soon." })
+      form.reset()
+    } catch (err) {
+      setStatus({ ok: false, msg: "There was an error sending your message. Please try again." })
+    } finally {
+      setIsSending(false)
+    }
+  }
+
   return (
     <section id="contact" className="py-20 bg-gray-950">
       <div className="container mx-auto px-4 md:px-6">
@@ -129,7 +169,7 @@ export default function Contact() {
 
           {/* Contact Form */}
           <div>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit} noValidate>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label
@@ -201,11 +241,17 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full px-6 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium shadow-lg shadow-purple-500/20 hover:shadow-purple-500/30 transition-all flex items-center justify-center gap-2"
+                disabled={isSending}
+                className={`w-full px-6 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium shadow-lg shadow-purple-500/20 hover:shadow-purple-500/30 transition-all flex items-center justify-center gap-2 ${isSending ? "opacity-70 cursor-not-allowed" : ""}`}
               >
-                Send Message
+                {isSending ? "Sending..." : "Send Message"}
                 <Send size={16} />
               </button>
+              {status && (
+                <p className={`text-sm ${status.ok ? "text-green-400" : "text-red-400"}`}>
+                  {status.msg}
+                </p>
+              )}
             </form>
           </div>
         </div>
