@@ -60,12 +60,22 @@ export default function Projects() {
       githubUrl: "https://github.com/JosePizarro1/cafeteria.git",
       youtubeUrl: "",
     },
+    {
+      title: "Centro Salud Esperanza",
+      description:
+        "A system for the Esperanza Health Center designed to monitor basic services for the population and ensure accurate tracking and planning.",
+      image: "/img/centrosaludesperanza.png",
+      tags: ["Python", "Django", "Bootstrap", "Tailwind CSS", "SQLite3"],
+      liveUrl: "",
+      githubUrl: "https://github.com/JosePizarro1/mcais.git",
+      youtubeUrl: "",
+    },
   ];
 
 
 
 
-const containerVariants = {
+  const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,

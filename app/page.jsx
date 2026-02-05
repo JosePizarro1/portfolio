@@ -8,6 +8,7 @@ import Skills from "@/components/skills"
 import Projects from "@/components/projects"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
+import SiriGlow from "@/components/siri-glow"
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -18,6 +19,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
+      <SiriGlow />
       <Navbar />
       <div className={`transition-opacity duration-400 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
         <Hero />

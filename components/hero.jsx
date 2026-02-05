@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { ArrowDown } from "lucide-react";
 import Link from "next/link";
+import HeroParticles from "./hero-particles";
 
 const PRIMARY_GRADIENT = "bg-gradient-to-r from-purple-600 to-blue-600";
 const SECONDARY_BG = "bg-gray-800 hover:bg-gray-700";
@@ -55,6 +56,7 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950"
     >
+      <HeroParticles />
       <div className="container px-4 md:px-6 z-10">
         <span className={`px-4 py-1 mb-4 rounded-full text-sm font-medium ${SECONDARY_BG} ${TEXT_SECONDARY}`}>
           Welcome to my portfolio
@@ -71,7 +73,7 @@ export default function Hero() {
         </div>
 
         <p className={`max-w-2xl ${TEXT_TERTIARY} mb-10 mx-auto`}>
-        I  develop end-to-end web applications—combining frontend interactivity with robust backend services—to deliver engaging, responsive, and scalable solutions with clean, maintainable code
+          I  develop end-to-end web applications—combining frontend interactivity with robust backend services—to deliver engaging, responsive, and scalable solutions with clean, maintainable code
         </p>
 
         <div className="flex justify-center items-center flex-col sm:flex-row gap-4">

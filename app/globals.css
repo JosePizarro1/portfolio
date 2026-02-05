@@ -56,3 +56,51 @@
   animation-delay: 0.6s;
 }
 
+@keyframes siri-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.siri-glow-container {
+  position: fixed;
+  inset: -2px;
+  z-index: 50;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.siri-glow-border {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150vw;
+  height: 150vh;
+  transform: translate(-50%, -50%);
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    #00ffff 60deg,
+    #ff00ff 120deg,
+    #7000ff 180deg,
+    #0000ff 240deg,
+    #00ffff 300deg,
+    transparent 360deg
+  );
+  animation: siri-rotate 4s linear infinite;
+  filter: blur(40px);
+  opacity: 0.5;
+}
+
+.siri-mask {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  box-shadow: inset 0 0 0 4px rgba(0, 0, 0, 1);
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  padding: 4px;
+}
