@@ -11,6 +11,16 @@ export default function Projects() {
 
   const projects = [
     {
+      title: "Taza Calculadora P2P",
+      description:
+        "An advanced calculator designed to manage remittances and arbitrage using the Binance P2P market. It features real-time rate tracking, custom profit margins, and multi-currency support.",
+      image: "/img/taza_calculadora.png",
+      tags: ["Python", "Flask", "JavaScript", "Binance API", "Vercel"],
+      liveUrl: "https://taza-calculadora.vercel.app",
+      githubUrl: "https://github.com/JosePizarro1/TazaCalculadora.git",
+      youtubeUrl: "",
+    },
+    {
       title: "Caja System",
       description:
         "A comprehensive system for managing income and expense flows, personnel, an expense calendar, and full accounting of payments.",
