@@ -9,6 +9,7 @@ import Projects from "@/components/projects"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 import SiriGlow from "@/components/siri-glow"
+import ChatBot from "@/components/chat-bot"
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -21,6 +22,7 @@ export default function Home() {
     <main className="min-h-screen">
       <SiriGlow />
       <Navbar />
+      <ChatBot />
       <div className={`transition-opacity duration-400 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
         <Hero />
         <About />
