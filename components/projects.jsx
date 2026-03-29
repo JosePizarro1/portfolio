@@ -11,6 +11,16 @@ export default function Projects() {
 
   const projects = [
     {
+      title: "Metropolitano - Medical Management System",
+      description:
+        "A robust and modern system for affiliate management, medical care tracking, and bulk data import via Excel. Features a premium UI with optimized performance and dynamic interactions.",
+      image: "/img/seguimiento_metropolitano.png",
+      tags: ["Django", "Pandas", "Tailwind CSS", "DataTables.js", "PostgreSQL", "Vercel"],
+      liveUrl: "https://seguimientoati.vercel.app/",
+      githubUrl: "",
+      youtubeUrl: "",
+    },
+    {
       title: "Taza Calculadora P2P",
       description:
         "An advanced calculator designed to manage remittances and arbitrage using the Binance P2P market. It features real-time rate tracking, custom profit margins, and multi-currency support.",
@@ -156,24 +166,28 @@ export default function Projects() {
                   ))}
                 </div>
                 <div className="flex gap-4">
-                  <a
-                    href={project.liveUrl}
-                    className="flex items-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <ExternalLink size={16} />
-                    Live Demo
-                  </a>
-                  <a
-                    href={project.githubUrl}
-                    className="flex items-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Github size={16} />
-                    Source Code
-                  </a>
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      className="flex items-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink size={16} />
+                      Live Demo
+                    </a>
+                  )}
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      className="flex items-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github size={16} />
+                      Source Code
+                    </a>
+                  )}
 
                   {project.youtubeUrl && (
                     <a

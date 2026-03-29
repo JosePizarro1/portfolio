@@ -1,14 +1,31 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { MessageSquare, X, Bot, Sparkles } from "lucide-react"
+import { MessageSquare, X, Bot, Sparkles, Send, User } from "lucide-react"
 
 export default function ChatBot() {
     const [isOpen, setIsOpen] = useState(false)
     const [showMessage, setShowMessage] = useState(false)
     const [text, setText] = useState("")
+    const [input, setInput] = useState("")
+    const [messages, setMessages] = useState([
+        { role: "assistant", content: "¡Hola! Soy el asistente virtual de Jose. ¿Quieres saber sobre sus proyectos o contactarlo?" }
+    ])
+    const [isLoading, setIsLoading] = useState(false)
+    const messagesEndRef = useRef(null)
+    
     const fullText = "¡Hola! Soy Jose. ¿En qué puedo ayudarte hoy?"
+
+    const scrollToBottom = () => {
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    }
+
+    useEffect(() => {
+        if (isOpen) {
+            scrollToBottom()
+        }
+    }, [messages, isOpen])
 
     useEffect(() => {
         // Show a greeting message after 2 seconds
@@ -31,6 +48,40 @@ export default function ChatBot() {
             return () => clearInterval(interval)
         }
     }, [showMessage, isOpen])
+
+    const handleSend = async () => {
+        if (!input.trim() || isLoading) return
+
+        const userMessage = { role: "user", content: input }
+        setMessages(prev => [...prev, userMessage])
+        setInput("")
+        setIsLoading(true)
+
+        try {
+            const response = await fetch("/api/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    messages: [...messages, userMessage].map(m => ({
+                        role: m.role,
+                        content: m.content
+                    }))
+                })
+            })
+
+            const data = await response.json()
+            if (data.text) {
+                setMessages(prev => [...prev, { role: "assistant", content: data.text }])
+            } else {
+                throw new Error("No response")
+            }
+        } catch (error) {
+            console.error("Chat Error:", error)
+            setMessages(prev => [...prev, { role: "assistant", content: "Lo siento, tuve un problema al procesar tu mensaje. ¿Podrías intentarlo de nuevo?" }])
+        } finally {
+            setIsLoading(false)
+        }
+    }
 
     return (
         <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
@@ -118,58 +169,126 @@ export default function ChatBot() {
                 </AnimatePresence>
             </motion.button>
 
-            {/* Mini Chat Window (Placeholder for future functionality) */}
+            {/* Mini Chat Window */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: 50, scale: 0.9, blur: "10px" }}
-                        animate={{ opacity: 1, y: 0, scale: 1, blur: "0px" }}
+                        initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 50, scale: 0.9 }}
-                        className="absolute bottom-20 right-0 w-[320px] h-[400px] bg-gray-900/90 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col"
+                        className="absolute bottom-20 right-0 w-[350px] h-[500px] bg-gray-900/95 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col"
                     >
-                        <div className="p-4 bg-gradient-to-r from-purple-600/20 to-blue-600/20 border-b border-white/10 flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center">
-                                <Bot size={18} className="text-white" />
-                            </div>
-                            <div>
-                                <h4 className="text-sm font-bold text-white">Jose AI Assistant</h4>
-                                <div className="flex items-center gap-1.5">
-                                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                                    <span className="text-[10px] text-gray-400">Online</span>
+                        {/* Header */}
+                        <div className="p-4 bg-gradient-to-r from-purple-600/20 to-blue-600/20 border-b border-white/10 flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                                <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center shadow-lg shadow-purple-500/20">
+                                    <Bot size={18} className="text-white" />
+                                </div>
+                                <div>
+                                    <h4 className="text-sm font-bold text-white leading-tight">Jose Assistant</h4>
+                                    <div className="flex items-center gap-1.5">
+                                        <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                                        <span className="text-[10px] text-gray-400">Online | Gemini AI</span>
+                                    </div>
                                 </div>
                             </div>
+                            <button 
+                                onClick={() => setIsOpen(false)}
+                                className="text-gray-400 hover:text-white transition-colors"
+                            >
+                                <X size={18} />
+                            </button>
                         </div>
 
-                        <div className="flex-1 p-4 overflow-y-auto space-y-4">
-                            <div className="bg-gray-800/50 rounded-2xl rounded-tl-none p-3 text-sm text-gray-300 border border-white/5">
-                                ¡Hola! Soy el asistente virtual de Jose. ¿Quieres saber sobre sus proyectos o contactarlo?
-                            </div>
-                            <div className="flex flex-col gap-2">
-                                {[{ name: "Ver Proyectos", href: "#projects" }, { name: "Contactar", href: "#contact" }, { name: "Descargar CV", href: "/pdf/CV_JOSE_PIZARRO.pdf", download: true }].map((option) => (
-                                    <a
-                                        key={option.name}
-                                        href={option.href}
-                                        download={option.download}
-                                        onClick={() => setIsOpen(false)}
-                                        className="text-left px-4 py-2 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 text-xs text-purple-300 transition-all cursor-pointer"
+                        {/* Messages Area */}
+                        <div className="flex-1 p-4 overflow-y-auto space-y-4 custom-scrollbar">
+                            {messages.map((msg, index) => (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    key={index}
+                                    className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+                                >
+                                    <div className={`flex items-end gap-2 max-w-[85%] ${msg.role === "user" ? "flex-row-reverse" : ""}`}>
+                                        <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 ${
+                                            msg.role === "user" ? "bg-blue-600" : "bg-purple-600"
+                                        }`}>
+                                            {msg.role === "user" ? <User size={12} className="text-white" /> : <Bot size={12} className="text-white" />}
+                                        </div>
+                                        <div className={`p-3 rounded-2xl text-xs leading-relaxed shadow-sm ${
+                                            msg.role === "user" 
+                                                ? "bg-blue-600 text-white rounded-br-none" 
+                                                : "bg-gray-800/80 text-gray-200 border border-white/5 rounded-bl-none"
+                                        }`}>
+                                            {msg.content}
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                            {isLoading && (
+                                <div className="flex justify-start">
+                                    <div className="flex items-center gap-2 bg-gray-800/80 p-3 rounded-2xl rounded-bl-none border border-white/5">
+                                        <div className="flex gap-1">
+                                          <motion.div animate={{ opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 1.5 }} className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
+                                          <motion.div animate={{ opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 1.5, delay: 0.2 }} className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
+                                          <motion.div animate={{ opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 1.5, delay: 0.4 }} className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                            <div ref={messagesEndRef} />
+                        </div>
+
+                        {/* Initial Options (Show only when conversation is short) */}
+                        {messages.length < 3 && (
+                            <div className="px-4 pb-2 flex flex-wrap gap-2">
+                                {[
+                                    { name: "Ver Proyectos", id: "projects" }, 
+                                    { name: "Habilidades", id: "skills" },
+                                    { name: "Contacto", id: "contact" }
+                                ].map((option) => (
+                                    <button
+                                        key={option.id}
+                                        onClick={() => {
+                                            setInput(`Cuéntame sobre tus ${option.name.toLowerCase()}`)
+                                            // Optional: auto-send
+                                        }}
+                                        className="px-3 py-1.5 rounded-full bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 text-[10px] text-purple-300 transition-all"
                                     >
                                         {option.name}
-                                    </a>
+                                    </button>
                                 ))}
                             </div>
-                        </div>
+                        )}
 
-                        <div className="p-4 border-top border-white/10">
-                            <div className="relative">
+                        {/* Input Area */}
+                        <div className="p-4 bg-gray-900/50 border-t border-white/5">
+                            <form 
+                                onSubmit={(e) => {
+                                    e.preventDefault()
+                                    handleSend()
+                                }}
+                                className="relative flex items-center gap-2"
+                            >
                                 <input
+                                    value={input}
+                                    onChange={(e) => setInput(e.target.value)}
+                                    disabled={isLoading}
                                     type="text"
                                     placeholder="Escribe un mensaje..."
-                                    className="w-full bg-gray-800/50 border border-white/10 rounded-xl px-4 py-2 text-xs focus:outline-none focus:border-purple-500/50 transition-colors"
+                                    className="w-full bg-gray-800/50 border border-white/10 rounded-2xl px-4 py-3 text-xs text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-purple-500/50 transition-all disabled:opacity-50"
                                 />
-                                <button className="absolute right-2 top-1/2 -translate-y-1/2 text-purple-500 hover:text-purple-400">
-                                    <MessageSquare size={14} />
+                                <button 
+                                    type="submit"
+                                    disabled={isLoading || !input.trim()}
+                                    className="p-2.5 rounded-xl bg-purple-600 text-white hover:bg-purple-500 disabled:opacity-50 disabled:hover:bg-purple-600 transition-all flex-shrink-0 shadow-lg shadow-purple-500/20"
+                                >
+                                    <Send size={16} />
                                 </button>
-                            </div>
+                            </form>
+                            <p className="text-[9px] text-center text-gray-500 mt-2">
+                                Potenciado por Gemini 1.5 Flash
+                            </p>
                         </div>
                     </motion.div>
                 )}

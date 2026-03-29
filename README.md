@@ -68,6 +68,7 @@ Para ejecutar este proyecto de forma local, sigue estos pasos:
 
 ## 📂 Proyectos Destacados
 
+-   **Metropolitano**: Sistema de gestión médica integral con importación de datos avanzada, UI premium y arquitectura escalable en Vercel.
 -   **Centro Salud Esperanza**: Sistema para el control de servicios básicos de la población y planificación de seguimiento.
 -   **Caja System**: Gestión de flujos de ingresos y gastos.
 -   **GTI Internal Process Management**: Sistema de flujo de trabajo administrativo con firmas digitales.
