@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef, useEffect, useState } from "react"
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt, FaGithub, FaFigma, FaNpm, FaFire, FaProjectDiagram } from "react-icons/fa"
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt, FaGithub, FaFigma, FaNpm, FaFire, FaProjectDiagram, FaSalesforce, FaSlack, FaWhatsapp, FaSearch, FaCloud } from "react-icons/fa"
 import { TbBrandFlutter } from "react-icons/tb";
 import {
   SiNextdotjs,
@@ -21,6 +21,8 @@ import {
   SiFlutter,
   SiFastapi,
   SiPostgresql,
+  SiGooglecloud,
+  SiDocker
 } from "react-icons/si"
 import { PiMicrosoftPowerpointLogo } from "react-icons/pi";
 
@@ -86,7 +88,14 @@ export default function Skills() {
     // { name: "Firebase", icon: <SiFirebase className="text-[#FFCA28]" size={24} /> },
      { name: "Framer", icon: <SiFramer size={24} /> },
      { name: "Power BI", icon: <PiMicrosoftPowerpointLogo className="text-[#F2C811]" size={24} /> }, 
+     { name: "Looker Studio", icon: <FaSearch className="text-[#4285F4]" size={24} /> }, 
+     { name: "Salesforce CRM", icon: <FaSalesforce className="text-[#00A1E0]" size={24} /> }, 
+     { name: "WhatsApp API", icon: <FaWhatsapp className="text-[#25D366]" size={24} /> }, 
+     { name: "Slack Apps", icon: <FaSlack className="text-[#4A154B]" size={24} /> }, 
      { name: "SQLite", icon: <SiSqlite className="text-[#07405E]" size={24} /> },
+     { name: "Docker", icon: <SiDocker className="text-[#2496ED]" size={24} /> },
+     { name: "Google Cloud", icon: <SiGooglecloud className="text-[#4285F4]" size={24} /> },
+     { name: "Azure DevOps", icon: <FaCloud className="text-[#0078D7]" size={24} /> },
     { name: "FlutterFlow", icon: <TbBrandFlutter className="text-[#800080]" size={24} /> },
     ]
     

@@ -21,6 +21,16 @@ export default function Projects() {
       youtubeUrl: "",
     },
     {
+      title: "Bot de Atención al Cliente y Reservas",
+      description:
+        "An intelligent customer service bot focused on automated reservation flows. Integrates Azure OCR to process and validate payment screenshots, and synchronizes with third-party services for scheduling and calendar management.",
+      image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      tags: ["FastAPI", "LangGraph", "RAG & Embeddings", "Docker", "Azure DevOps", "WhatsApp API", "Azure OCR"],
+      liveUrl: "",
+      githubUrl: "",
+      youtubeUrl: "",
+    },
+    {
       title: "Taza Calculadora P2P",
       description:
         "An advanced calculator designed to manage remittances and arbitrage using the Binance P2P market. It features real-time rate tracking, custom profit margins, and multi-currency support.",
