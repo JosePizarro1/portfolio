@@ -3,13 +3,25 @@
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
-import { ExternalLink, Github, ArrowRight } from "lucide-react"
+import { ExternalLink, Github, ArrowRight, Download } from "lucide-react"
 
 export default function Projects() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   const projects = [
+    {
+      title: "Sistema Página Web Control Lab",
+      description:
+        "An advanced laboratory management system and patient care web portal. Integrates patient tracking, medical reports, scheduling, and results delivery. Designed with modern user experience patterns.",
+      image: "/img/pagina web salud laboratorio.png",
+      tags: ["React", "Python", "Supabase", "PostgreSQL"],
+      liveUrl: "",
+      githubUrl: "",
+      youtubeUrl: "",
+      brochureUrl: "/Control Lab -Broushure.pdf",
+      isControlLab: true,
+    },
     {
       title: "Metropolitano - Medical Management System",
       description:
@@ -155,8 +167,24 @@ export default function Projects() {
             <motion.div
               key={project.title}
               variants={itemVariants}
-              className="bg-gray-800 rounded-xl overflow-hidden hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300"
+              className="relative bg-gray-800 rounded-xl overflow-hidden hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300"
             >
+              {project.isControlLab && (
+                <div className="absolute inset-0 rounded-xl pointer-events-none z-10" style={{ padding: "1.5px" }}>
+                  <div className="absolute inset-0 rounded-xl overflow-hidden">
+                    <div className="border-beam-glow">
+                      <div
+                        className="absolute w-36 h-12 bg-gradient-to-r from-purple-500 via-blue-500 to-pink-500 rounded-full blur-[4px] opacity-100"
+                        style={{
+                          offsetPath: "rect(0 100% 100% 0 round 12px)",
+                          offsetAnchor: "50% 50%",
+                          animation: "border-beam 6s linear infinite",
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
               <div className="relative h-60 overflow-hidden">
                 <Image
                   src={project.image || "/placeholder.svg"}
@@ -175,7 +203,7 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-4 items-center">
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}
@@ -208,6 +236,17 @@ export default function Projects() {
                     >
                       <ArrowRight size={16} />
                       YouTube
+                    </a>
+                  )}
+
+                  {project.brochureUrl && (
+                    <a
+                      href={project.brochureUrl}
+                      download="Control Lab - Brochure.pdf"
+                      className="flex items-center gap-2 text-sm text-cyan-400 hover:text-cyan-300 font-semibold transition-colors px-3 py-1.5 bg-cyan-950/40 rounded-lg border border-cyan-800/40 hover:border-cyan-600/60"
+                    >
+                      <Download size={16} className="animate-pulse" />
+                      Descargar Brochure
                     </a>
                   )}
                 </div>
