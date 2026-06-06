@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useMemo } from "react"
+import { useRef, useMemo, useState, useEffect } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { Points, PointMaterial } from "@react-three/drei"
 
@@ -23,8 +23,10 @@ function ParticleField(props) {
     }, [])
 
     useFrame((state, delta) => {
-        ref.current.rotation.x -= delta / 10
-        ref.current.rotation.y -= delta / 15
+        if (ref.current) {
+            ref.current.rotation.x -= delta / 10
+            ref.current.rotation.y -= delta / 15
+        }
     })
 
     return (
@@ -43,9 +45,25 @@ function ParticleField(props) {
 }
 
 export default function HeroParticles() {
+    const [mounted, setMounted] = useState(false)
+    const [canvasKey, setCanvasKey] = useState(0)
+
+    useEffect(() => {
+        setMounted(true)
+        // Remount the Canvas after 500ms, once the parent's 400ms fade-in transition is fully complete
+        const timer = setTimeout(() => {
+            setCanvasKey(prev => prev + 1)
+        }, 500)
+        return () => clearTimeout(timer)
+    }, [])
+
+    if (!mounted) {
+        return <div className="absolute inset-0 w-full h-full z-0 opacity-40 bg-gray-950/10" />
+    }
+
     return (
         <div className="absolute inset-0 w-full h-full z-0 opacity-40">
-            <Canvas camera={{ position: [0, 0, 1] }}>
+            <Canvas key={canvasKey} camera={{ position: [0, 0, 1] }}>
                 <ParticleField />
             </Canvas>
         </div>

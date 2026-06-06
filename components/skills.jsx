@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from "react"
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt, FaGithub, FaFigma, FaNpm, FaFire, FaProjectDiagram, FaSalesforce, FaSlack, FaWhatsapp, FaSearch, FaCloud } from "react-icons/fa"
 import { TbBrandFlutter } from "react-icons/tb";
+import { useLanguage } from "@/context/LanguageContext"
 import {
   SiNextdotjs,
   SiTailwindcss,
@@ -32,6 +33,7 @@ import { MdDesignServices } from "react-icons/md"
 export default function Skills() {
   const [isVisible, setIsVisible] = useState(false)
   const ref = useRef(null)
+  const { t } = useLanguage()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -92,6 +94,9 @@ export default function Skills() {
      { name: "Salesforce CRM", icon: <FaSalesforce className="text-[#00A1E0]" size={24} /> }, 
      { name: "WhatsApp API", icon: <FaWhatsapp className="text-[#25D366]" size={24} /> }, 
      { name: "Slack Apps", icon: <FaSlack className="text-[#4A154B]" size={24} /> }, 
+     { name: "Webhooks", icon: <svg className="text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: 24, height: 24 }}><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></svg> }, 
+     { name: "WebSockets", icon: <svg className="text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: 24, height: 24 }}><path d="m17 2 4 4-4 4" /><path d="M3 6h18" /><path d="m7 22-4-4 4-4" /><path d="M21 18H3" /></svg> }, 
+     { name: "SSE (Server-Sent Events)", icon: <svg className="text-orange-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: 24, height: 24 }}><path d="M4 11a9 9 0 0 1 9 9" /><path d="M4 4a16 16 0 0 1 16 16" /><circle cx="5" cy="19" r="1" /></svg> }, 
      { name: "SQLite", icon: <SiSqlite className="text-[#07405E]" size={24} /> },
      { name: "Docker", icon: <SiDocker className="text-[#2496ED]" size={24} /> },
      { name: "Google Cloud", icon: <SiGooglecloud className="text-[#4285F4]" size={24} /> },
@@ -105,12 +110,11 @@ export default function Skills() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            My{" "}
-            <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">Skills</span>
+            {t("skills.title")}{" "}
+            <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">{t("skills.highlight")}</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            I've worked with a variety of technologies in the web development world. Here's an overview of my technical
-            skills and expertise.
+            {t("skills.description")}
           </p>
         </div>
 
@@ -122,7 +126,7 @@ export default function Skills() {
         >
           {/* Core Skills with icons */}
           <div>
-            <h3 className="text-xl font-semibold mb-8 text-center">Core Competencies</h3>
+            <h3 className="text-xl font-semibold mb-8 text-center">{t("skills.core")}</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
               {skills.map((skill) => (
                 <div
@@ -143,7 +147,7 @@ export default function Skills() {
 
           {/* Other technologies */}
           <div className="mt-8">
-            <h3 className="text-xl font-semibold mb-8 text-center">Technologies & Tools</h3>
+            <h3 className="text-xl font-semibold mb-8 text-center">{t("skills.tools")}</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
               {technologies.map((tech) => (
                 <div
@@ -161,4 +165,5 @@ export default function Skills() {
     </section>
   )
 }
+
 

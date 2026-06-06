@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google"
 import "./globals.css"
+import { LanguageProvider } from "@/context/LanguageContext"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -31,7 +32,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es" className="dark scroll-smooth">
-      <body className={`${inter.className} bg-gray-950 text-gray-100 antialiased`}>{children}</body>
+      <body className={`${inter.className} bg-gray-950 text-gray-100 antialiased`}>
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
+      </body>
     </html>
   )
 }

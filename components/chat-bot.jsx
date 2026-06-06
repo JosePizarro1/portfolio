@@ -3,23 +3,33 @@
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { MessageSquare, X, Bot, Sparkles, Send, User } from "lucide-react"
+import { useLanguage } from "@/context/LanguageContext"
 
 export default function ChatBot() {
+    const { language, t } = useLanguage()
     const [isOpen, setIsOpen] = useState(false)
     const [showMessage, setShowMessage] = useState(false)
     const [text, setText] = useState("")
     const [input, setInput] = useState("")
     const [messages, setMessages] = useState([
-        { role: "assistant", content: "¡Hola! Soy el asistente virtual de Jose. ¿Quieres saber sobre sus proyectos o contactarlo?" }
+        { role: "assistant", content: "" }
     ])
     const [isLoading, setIsLoading] = useState(false)
     const messagesEndRef = useRef(null)
     
-    const fullText = "¡Hola! Soy Jose. ¿En qué puedo ayudarte hoy?"
+    const fullText = t("chatbot.bubbleGreeting")
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
     }
+
+    // Initialize/translate initial message when language changes
+    useEffect(() => {
+        const initialGreeting = t("chatbot.greeting")
+        if (messages.length === 1 && messages[0].content !== initialGreeting) {
+            setMessages([{ role: "assistant", content: initialGreeting }])
+        }
+    }, [language, t, messages])
 
     useEffect(() => {
         if (isOpen) {
@@ -47,7 +57,7 @@ export default function ChatBot() {
             }, 50)
             return () => clearInterval(interval)
         }
-    }, [showMessage, isOpen])
+    }, [showMessage, isOpen, fullText])
 
     const handleSend = async () => {
         if (!input.trim() || isLoading) return
@@ -65,7 +75,8 @@ export default function ChatBot() {
                     messages: [...messages, userMessage].map(m => ({
                         role: m.role,
                         content: m.content
-                    }))
+                    })),
+                    language // Pass the current language to the LLM backend if it needs to adapt
                 })
             })
 
@@ -77,7 +88,7 @@ export default function ChatBot() {
             }
         } catch (error) {
             console.error("Chat Error:", error)
-            setMessages(prev => [...prev, { role: "assistant", content: "Lo siento, tuve un problema al procesar tu mensaje. ¿Podrías intentarlo de nuevo?" }])
+            setMessages(prev => [...prev, { role: "assistant", content: t("chatbot.error") }])
         } finally {
             setIsLoading(false)
         }
@@ -185,10 +196,10 @@ export default function ChatBot() {
                                     <Bot size={18} className="text-white" />
                                 </div>
                                 <div>
-                                    <h4 className="text-sm font-bold text-white leading-tight">Jose Assistant</h4>
+                                    <h4 className="text-sm font-bold text-white leading-tight">{t("chatbot.title")}</h4>
                                     <div className="flex items-center gap-1.5">
                                         <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                                        <span className="text-[10px] text-gray-400">Online | Gemini AI</span>
+                                        <span className="text-[10px] text-gray-400">{t("chatbot.status")}</span>
                                     </div>
                                 </div>
                             </div>
@@ -243,15 +254,18 @@ export default function ChatBot() {
                         {messages.length < 3 && (
                             <div className="px-4 pb-2 flex flex-wrap gap-2">
                                 {[
-                                    { name: "Ver Proyectos", id: "projects" }, 
-                                    { name: "Habilidades", id: "skills" },
-                                    { name: "Contacto", id: "contact" }
+                                    { name: t("chatbot.options.projects"), id: "projects" }, 
+                                    { name: t("chatbot.options.skills"), id: "skills" },
+                                    { name: t("chatbot.options.contact"), id: "contact" }
                                 ].map((option) => (
                                     <button
                                         key={option.id}
                                         onClick={() => {
-                                            setInput(`Cuéntame sobre tus ${option.name.toLowerCase()}`)
-                                            // Optional: auto-send
+                                            setInput(
+                                                language === "es"
+                                                    ? `Cuéntame sobre tus ${option.name.toLowerCase()}`
+                                                    : `Tell me about your ${option.name.toLowerCase()}`
+                                            )
                                         }}
                                         className="px-3 py-1.5 rounded-full bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 text-[10px] text-purple-300 transition-all"
                                     >
@@ -275,7 +289,7 @@ export default function ChatBot() {
                                     onChange={(e) => setInput(e.target.value)}
                                     disabled={isLoading}
                                     type="text"
-                                    placeholder="Escribe un mensaje..."
+                                    placeholder={t("chatbot.placeholder")}
                                     className="w-full bg-gray-800/50 border border-white/10 rounded-2xl px-4 py-3 text-xs text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-purple-500/50 transition-all disabled:opacity-50"
                                 />
                                 <button 
@@ -287,7 +301,7 @@ export default function ChatBot() {
                                 </button>
                             </form>
                             <p className="text-[9px] text-center text-gray-500 mt-2">
-                                Potenciado por Gemini 1.5 Flash
+                                {language === "es" ? "Potenciado por Gemini 1.5 Flash" : "Powered by Gemini 1.5 Flash"}
                             </p>
                         </div>
                     </motion.div>
@@ -296,3 +310,4 @@ export default function ChatBot() {
         </div>
     )
 }
+

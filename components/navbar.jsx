@@ -3,10 +3,12 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X, Github, Linkedin, Twitter } from "lucide-react"
+import { useLanguage } from "@/context/LanguageContext"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { language, setLanguage, t } = useLanguage()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,12 +20,42 @@ export default function Navbar() {
   }, [])
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: t("nav.home"), href: "#home" },
+    { name: t("nav.about"), href: "#about" },
+    { name: t("nav.skills"), href: "#skills" },
+    { name: t("nav.solutions"), href: "#solutions" },
+    { name: t("nav.projects"), href: "#projects" },
+    { name: t("nav.contact"), href: "#contact" },
   ]
+
+  const LanguageSwitcher = () => (
+    <div className="flex items-center bg-gray-800/80 border border-gray-700/50 rounded-full p-0.5 relative select-none w-[90px] h-[30px]">
+      <button
+        onClick={() => setLanguage("es")}
+        className={`flex-1 text-center text-[10px] font-bold rounded-full transition-all duration-300 relative z-10 ${
+          language === "es" ? "text-white" : "text-gray-400 hover:text-gray-200"
+        }`}
+      >
+        ES
+      </button>
+      <button
+        onClick={() => setLanguage("en")}
+        className={`flex-1 text-center text-[10px] font-bold rounded-full transition-all duration-300 relative z-10 ${
+          language === "en" ? "text-white" : "text-gray-400 hover:text-gray-200"
+        }`}
+      >
+        EN
+      </button>
+      {/* Sliding background */}
+      <div
+        className="absolute top-0.5 bottom-0.5 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full transition-all duration-300"
+        style={{
+          left: language === "es" ? "2px" : "calc(50% + 1px)",
+          width: "calc(50% - 3px)"
+        }}
+      />
+    </div>
+  )
 
   return (
     <header
@@ -49,32 +81,35 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Social Icons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <a
-              href="https://github.com/JosePizarro1/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-all hover:-translate-y-1 duration-200"
-            >
-              <Github size={20} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/jose-alfredo-pizarro-rabanal-56aaaa189/?trk=public-profile-join-page"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-all hover:-translate-y-1 duration-200"
-            >
-              <Linkedin size={20} />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-all hover:-translate-y-1 duration-200"
-            >
-              <Twitter size={20} />
-            </a>
+          {/* Social Icons & Language Switcher */}
+          <div className="hidden md:flex items-center space-x-6">
+            <LanguageSwitcher />
+            <div className="flex items-center space-x-4">
+              <a
+                href="https://github.com/JosePizarro1/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-all hover:-translate-y-1 duration-200"
+              >
+                <Github size={20} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/jose-alfredo-pizarro-rabanal-56aaaa189/?trk=public-profile-join-page"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-all hover:-translate-y-1 duration-200"
+              >
+                <Linkedin size={20} />
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-all hover:-translate-y-1 duration-200"
+              >
+                <Twitter size={20} />
+              </a>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -102,31 +137,34 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <div className="flex space-x-4 pt-4 border-t border-gray-800">
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white"
-              >
-                <Github size={20} />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white"
-              >
-                <Linkedin size={20} />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white"
-              >
-                <Twitter size={20} />
-              </a>
+            <div className="flex items-center justify-between pt-4 border-t border-gray-800">
+              <LanguageSwitcher />
+              <div className="flex space-x-4">
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white"
+                >
+                  <Github size={20} />
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white"
+                >
+                  <Linkedin size={20} />
+                </a>
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white"
+                >
+                  <Twitter size={20} />
+                </a>
+              </div>
             </div>
           </nav>
         </div>
@@ -134,4 +172,5 @@ export default function Navbar() {
     </header>
   )
 }
+
 

@@ -4,118 +4,14 @@ import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
 import { ExternalLink, Github, ArrowRight, Download } from "lucide-react"
+import { useLanguage } from "@/context/LanguageContext"
 
 export default function Projects() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.1 })
+  const { t } = useLanguage()
 
-  const projects = [
-    {
-      title: "Sistema Página Web Control Lab",
-      description:
-        "An advanced laboratory management system and patient care web portal. Integrates patient tracking, medical reports, scheduling, and results delivery. Designed with modern user experience patterns.",
-      image: "/img/pagina web salud laboratorio.png",
-      tags: ["React", "Python", "Supabase", "PostgreSQL"],
-      liveUrl: "",
-      githubUrl: "",
-      youtubeUrl: "",
-      brochureUrl: "/Control Lab -Broushure.pdf",
-      isControlLab: true,
-    },
-    {
-      title: "Metropolitano - Medical Management System",
-      description:
-        "A robust and modern system for affiliate management, medical care tracking, and bulk data import via Excel. Features a premium UI with optimized performance and dynamic interactions.",
-      image: "/img/seguimiento_metropolitano.png",
-      tags: ["Django", "Pandas", "Tailwind CSS", "DataTables.js", "PostgreSQL", "Vercel"],
-      liveUrl: "https://seguimientoati.vercel.app/",
-      githubUrl: "",
-      youtubeUrl: "",
-    },
-    {
-      title: "Bot de Atención al Cliente y Reservas",
-      description:
-        "An intelligent customer service bot focused on automated reservation flows. Integrates Azure OCR to process and validate payment screenshots, and synchronizes with third-party services for scheduling and calendar management.",
-      image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      tags: ["FastAPI", "LangGraph", "RAG & Embeddings", "Docker", "Azure DevOps", "WhatsApp API", "Azure OCR"],
-      liveUrl: "",
-      githubUrl: "",
-      youtubeUrl: "",
-    },
-    {
-      title: "Taza Calculadora P2P",
-      description:
-        "An advanced calculator designed to manage remittances and arbitrage using the Binance P2P market. It features real-time rate tracking, custom profit margins, and multi-currency support.",
-      image: "/img/taza_calculadora.png",
-      tags: ["Python", "Flask", "JavaScript", "Binance API", "Vercel"],
-      liveUrl: "https://taza-calculadora.vercel.app",
-      githubUrl: "https://github.com/JosePizarro1/TazaCalculadora.git",
-      youtubeUrl: "",
-    },
-    {
-      title: "Caja System",
-      description:
-        "A comprehensive system for managing income and expense flows, personnel, an expense calendar, and full accounting of payments.",
-      image: "/img/imagen2.png",
-      tags: ["Django", "Bootstrap", "Tailwind CSS", "Gmail API", "Google Drive API", "SQLite3"],
-      liveUrl: "https://cajaegatur.pythonanywhere.com/",
-      githubUrl: "https://github.com/JosePizarro1/cajachica",
-      youtubeUrl: "",
-    },
-    {
-      title: "GTI Internal Process Management Egatur",
-      description:
-        "An end-to-end internal workflow system for administrative documents, featuring digital signatures and role-based access control.",
-      image: "/img/imagen1.png",
-      tags: ["Django", "Bootstrap", "Tailwind CSS", "SQLite3", "Gmail API", "Google Drive API"],
-      liveUrl: "https://gti.egatur.edu.pe/",
-      githubUrl: "https://github.com/JosePizarro1/gti",
-      youtubeUrl: "",
-    },
-    {
-      title: "Gym Management/Academy System",
-      description:
-        "A responsive gym management /Academy platform with QR-based attendance, client management, payment processing, and membership tracking.",
-      image: "/img/imagen3.png",
-      tags: ["Django", "Bootstrap", "Tailwind CSS", "SQLite3"],
-      liveUrl: "https://demogym.pythonanywhere.com/",
-      githubUrl: "https://github.com/JosePizarro1/Gym",
-      youtubeUrl: "",
-    },
-    {
-      title: "NFT Chest Adventure Game MEDIEVAL",
-      description:
-        "A responsive NFT-based game with chest mechanics and character logic for gold creation. Reached over 1,800 active users during its peak phase.",
-      image: "/img/imagen4.png",
-      tags: ["Django", "Bootstrap", "Tailwind CSS", "SQLite3"],
-      liveUrl: "https://medievalnft.pythonanywhere.com/login/?next=/",
-      githubUrl: "",
-      youtubeUrl: "https://youtu.be/Cg1xWz0_uwk",
-    },
-    {
-      title: "Cafeteria Management System with Inventory and Kardex",
-      description:
-        "A fully responsive web application. This system manages a complete product inventory with Kardex tracking between warehouses. It includes sales functionality to calculate profits, monitor stock levels, and detect shortages. Ideal for cafeterias seeking full traceability, operational efficiency, and stock control.",
-      image: "/img/cafeteria.png",
-      tags: ["Django", "Bootstrap", "Tailwind CSS", "SQLite3"],
-      liveUrl: "https://cafeteria.egatur.edu.pe/",
-      githubUrl: "https://github.com/JosePizarro1/cafeteria.git",
-      youtubeUrl: "",
-    },
-    {
-      title: "Centro Salud Esperanza",
-      description:
-        "A system for the Esperanza Health Center designed to monitor basic services for the population and ensure accurate tracking and planning.",
-      image: "/img/centrosaludesperanza.png",
-      tags: ["Python", "Django", "Bootstrap", "Tailwind CSS", "SQLite3"],
-      liveUrl: "",
-      githubUrl: "https://github.com/JosePizarro1/mcais.git",
-      youtubeUrl: "",
-    },
-  ];
-
-
-
+  const projects = t("projects.list") || []
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -142,8 +38,8 @@ export default function Projects() {
             transition={{ duration: 0.5 }}
             className="text-3xl md:text-4xl font-bold mb-4"
           >
-            My{" "}
-            <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">Projects</span>
+            {t("projects.title")}{" "}
+            <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">{t("projects.highlight")}</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -151,8 +47,7 @@ export default function Projects() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-gray-400 max-w-2xl mx-auto"
           >
-            Here are some of my recent projects. Each project showcases different skills and technologies I've worked
-            with.
+            {t("projects.description")}
           </motion.p>
         </div>
 
@@ -212,7 +107,7 @@ export default function Projects() {
                       rel="noopener noreferrer"
                     >
                       <ExternalLink size={16} />
-                      Live Demo
+                      {t("projects.liveDemo")}
                     </a>
                   )}
                   {project.githubUrl && (
@@ -223,7 +118,7 @@ export default function Projects() {
                       rel="noopener noreferrer"
                     >
                       <Github size={16} />
-                      Source Code
+                      {t("projects.sourceCode")}
                     </a>
                   )}
 
@@ -235,7 +130,7 @@ export default function Projects() {
                       rel="noopener noreferrer"
                     >
                       <ArrowRight size={16} />
-                      YouTube
+                      {t("projects.youtube")}
                     </a>
                   )}
 
@@ -246,7 +141,7 @@ export default function Projects() {
                       className="flex items-center gap-2 text-sm text-cyan-400 hover:text-cyan-300 font-semibold transition-colors px-3 py-1.5 bg-cyan-950/40 rounded-lg border border-cyan-800/40 hover:border-cyan-600/60"
                     >
                       <Download size={16} className="animate-pulse" />
-                      Descargar Brochure
+                      {t("projects.downloadBrochure")}
                     </a>
                   )}
                 </div>
@@ -265,7 +160,7 @@ export default function Projects() {
             href="#"
             className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
           >
-            More projects in progress
+            {t("projects.more")}
             <ArrowRight size={16} />
           </a>
         </motion.div>
@@ -273,4 +168,5 @@ export default function Projects() {
     </section>
   )
 }
+
 
