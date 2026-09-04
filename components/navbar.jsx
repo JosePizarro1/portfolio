@@ -23,6 +23,7 @@ export default function Navbar() {
     { name: t("nav.home"), href: "#home" },
     { name: t("nav.about"), href: "#about" },
     { name: t("nav.skills"), href: "#skills" },
+    { name: t("nav.certifications"), href: "#certifications" },
     { name: t("nav.solutions"), href: "#solutions" },
     { name: t("nav.projects"), href: "#projects" },
     { name: t("nav.contact"), href: "#contact" },

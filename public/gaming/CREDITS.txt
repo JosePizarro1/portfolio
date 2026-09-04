@@ -1,0 +1,16 @@
+Chess knight: extracted from Chess Set by Riley Queen, Poly Haven. CC0.
+https://polyhaven.com/a/chess_set
+https://polyhaven.com/license
+Geometry retained; isolated white knight and 1K textures packed as GLB.
+
+Dota 2 symbol: Valve Corporation. Dota and the Dota logo are trademarks of Valve Corporation.
+Source: https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/global/dota2_logo_symbol.svg
+Personal fan portfolio; not affiliated with Valve.
+
+Hero portraits and Meepo render: Valve, Steam CDN.
+https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/meepo.png
+https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/arc_warden.png
+https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/visage.png
+https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/meepo.png
+Ancient medal: Valve game artwork, served by OpenDota.
+https://www.opendota.com/assets/images/dota2/rank_icons/rank_icon_6.png

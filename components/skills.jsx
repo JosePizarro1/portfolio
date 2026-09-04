@@ -23,7 +23,8 @@ import {
   SiFastapi,
   SiPostgresql,
   SiGooglecloud,
-  SiDocker
+  SiDocker,
+  SiElevenlabs
 } from "react-icons/si"
 import { PiMicrosoftPowerpointLogo } from "react-icons/pi";
 
@@ -101,7 +102,8 @@ export default function Skills() {
      { name: "Docker", icon: <SiDocker className="text-[#2496ED]" size={24} /> },
      { name: "Google Cloud", icon: <SiGooglecloud className="text-[#4285F4]" size={24} /> },
      { name: "Azure DevOps", icon: <FaCloud className="text-[#0078D7]" size={24} /> },
-    { name: "FlutterFlow", icon: <TbBrandFlutter className="text-[#800080]" size={24} /> },
+     { name: "ElevenLabs", icon: <SiElevenlabs className="text-white" size={24} /> },
+     { name: "FlutterFlow", icon: <TbBrandFlutter className="text-[#800080]" size={24} /> },
     ]
     
 

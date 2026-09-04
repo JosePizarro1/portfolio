@@ -3,7 +3,7 @@
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
-import { ExternalLink, Github, ArrowRight, Download } from "lucide-react"
+import { ExternalLink, Github, ArrowRight } from "lucide-react"
 import { useLanguage } from "@/context/LanguageContext"
 
 export default function Projects() {
@@ -131,17 +131,6 @@ export default function Projects() {
                     >
                       <ArrowRight size={16} />
                       {t("projects.youtube")}
-                    </a>
-                  )}
-
-                  {project.brochureUrl && (
-                    <a
-                      href={project.brochureUrl}
-                      download="Control Lab - Brochure.pdf"
-                      className="flex items-center gap-2 text-sm text-cyan-400 hover:text-cyan-300 font-semibold transition-colors px-3 py-1.5 bg-cyan-950/40 rounded-lg border border-cyan-800/40 hover:border-cyan-600/60"
-                    >
-                      <Download size={16} className="animate-pulse" />
-                      {t("projects.downloadBrochure")}
                     </a>
                   )}
                 </div>

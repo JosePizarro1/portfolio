@@ -4,6 +4,7 @@ export const translations = {
       home: "Inicio",
       about: "Sobre Mí",
       skills: "Habilidades",
+      certifications: "Certificaciones",
       solutions: "Soluciones",
       projects: "Proyectos",
       contact: "Contacto",
@@ -41,6 +42,33 @@ export const translations = {
       description: "He trabajado con una variedad de tecnologías en el mundo del desarrollo web. Aquí tienes un resumen de mis habilidades técnicas y experiencia.",
       core: "Competencias Principales",
       tools: "Tecnologías y Herramientas"
+    },
+    certifications: {
+      title: "En Progreso &",
+      highlight: "Objetivos",
+      description: "Especialización continua y certificaciones en Inteligencia Artificial y Cloud.",
+      inProgressTitle: "En Progreso",
+      goalsTitle: "Objetivos",
+      inProgressList: [
+        {
+          title: "AWS Certified AI Practitioner",
+          issuer: "AWS Certification",
+          badge: "/img/badges/aws-ai-practitioner.webp",
+          description: "Fundamentos de IA generativa, LLMs, Amazon Bedrock y desarrollo de soluciones de IA en la nube.",
+          tags: ["GenAI", "Bedrock", "SageMaker", "Prompting"],
+          progress: 60
+        }
+      ],
+      goalsList: [
+        {
+          title: "AWS Certified Machine Learning Engineer",
+          issuer: "AWS Certification",
+          badge: "/img/badges/aws-machine-learning.webp",
+          description: "Despliegue y optimización de modelos de Machine Learning y pipelines de MLOps en producción.",
+          tags: ["MLOps", "Fine-Tuning", "Distributed ML"],
+          status: "Próxima Meta"
+        }
+      ]
     },
     solutions: {
       title: "Soluciones",
@@ -123,19 +151,18 @@ export const translations = {
       list: [
         {
           title: "Sistema Página Web Control Lab",
-          description: "Un avanzado sistema de gestión de laboratorios y portal web de atención a pacientes. Integra seguimiento de pacientes, informes médicos, programación de citas y entrega de resultados. Diseñado con patrones modernos de experiencia de usuario.",
-          image: "/img/pagina_web_salud_laboratorio.png",
-          tags: ["React", "Python", "Supabase", "PostgreSQL"],
+          description: "Un avanzado sistema de gestión de laboratorios y portal web de atención a pacientes con conexión mediante LIS (Laboratory Information System). Integra seguimiento de pacientes, sincronización de órdenes médicas, programación de citas y entrega automatizada de resultados.",
+          image: "/img/pagina_web_salud_laboratorio.webp",
+          tags: ["React", "Python", "Supabase", "PostgreSQL", "Conexión LIS"],
           liveUrl: "",
           githubUrl: "",
           youtubeUrl: "",
-          brochureUrl: "/Control Lab -Broushure.pdf",
           isControlLab: true
         },
         {
           title: "Metropolitano - Sistema de Gestión Médica",
           description: "Un sistema robusto y moderno para la gestión de afiliados, seguimiento de atención médica e importación masiva de datos mediante Excel. Ofrece una interfaz premium con rendimiento optimizado e interacciones dinámicas.",
-          image: "/img/seguimiento_metropolitano.png",
+          image: "/img/seguimiento_metropolitano.webp",
           tags: ["Django", "Pandas", "Tailwind CSS", "DataTables.js", "PostgreSQL", "Vercel"],
           liveUrl: "https://seguimientoati.vercel.app/",
           githubUrl: "",
@@ -144,7 +171,7 @@ export const translations = {
         {
           title: "Bot de Atención al Cliente y Reservas",
           description: "Un bot inteligente de atención al cliente enfocado en flujos de reserva automatizados. Integra Azure OCR para procesar y validar capturas de pago, y se sincroniza con servicios de terceros para la gestión de calendarios y agendas.",
-          image: "/img/imagen3.png",
+          image: "/img/bot_reservas.webp",
           tags: ["FastAPI", "LangGraph", "RAG & Embeddings", "Docker", "Azure DevOps", "WhatsApp API", "Azure OCR"],
           liveUrl: "",
           githubUrl: "",
@@ -153,7 +180,7 @@ export const translations = {
         {
           title: "Taza Calculadora P2P",
           description: "Una calculadora avanzada diseñada para gestionar remesas y arbitraje utilizando el mercado P2P de Binance. Ofrece seguimiento de tasas en tiempo real, márgenes de ganancia personalizados y soporte multi-moneda.",
-          image: "/img/taza_calculadora.png",
+          image: "/img/taza_calculadora.webp",
           tags: ["Python", "Flask", "JavaScript", "Binance API", "Vercel"],
           liveUrl: "https://taza-calculadora.vercel.app",
           githubUrl: "https://github.com/JosePizarro1/TazaCalculadora.git",
@@ -162,7 +189,7 @@ export const translations = {
         {
           title: "Caja System",
           description: "Un sistema integral para gestionar flujos de ingresos y egresos, personal, un calendario de gastos y la contabilidad completa de pagos.",
-          image: "/img/imagen1.png",
+          image: "/img/imagen1.webp",
           tags: ["Django", "Bootstrap", "Tailwind CSS", "Gmail API", "Google Drive API", "SQLite3"],
           liveUrl: "https://cajaegatur.pythonanywhere.com/",
           githubUrl: "https://github.com/JosePizarro1/cajachica",
@@ -171,7 +198,7 @@ export const translations = {
         {
           title: "GTI Gestión de Procesos Internos Egatur",
           description: "Un sistema de flujo de trabajo interno de extremo a extremo para documentos administrativos, con firmas digitales y control de acceso basado en roles.",
-          image: "/img/imagen2.png",
+          image: "/img/imagen2.webp",
           tags: ["Django", "Bootstrap", "Tailwind CSS", "SQLite3", "Gmail API", "Google Drive API"],
           liveUrl: "https://gti.egatur.edu.pe/",
           githubUrl: "https://github.com/JosePizarro1/gti",
@@ -180,7 +207,7 @@ export const translations = {
         {
           title: "Sistema de Gimnasio/Academia",
           description: "Una plataforma adaptable de gestión de gimnasios/academias con control de asistencia por código QR, gestión de clientes, procesamiento de pagos y seguimiento de membresías.",
-          image: "/img/imagen3.png",
+          image: "/img/imagen3.webp",
           tags: ["Django", "Bootstrap", "Tailwind CSS", "SQLite3"],
           liveUrl: "https://demogym.pythonanywhere.com/",
           githubUrl: "https://github.com/JosePizarro1/Gym",
@@ -189,7 +216,7 @@ export const translations = {
         {
           title: "Aventura de Cofres NFT Medieval",
           description: "Un juego adaptable basado en NFTs con mecánicas de cofres y lógica de personajes para la generación de oro. Alcanzó más de 1,800 usuarios activos durante su fase pico.",
-          image: "/img/imagen4.png",
+          image: "/img/imagen4.webp",
           tags: ["Django", "Bootstrap", "Tailwind CSS", "SQLite3"],
           liveUrl: "https://medievalnft.pythonanywhere.com/login/?next=/",
           githubUrl: "",
@@ -198,7 +225,7 @@ export const translations = {
         {
           title: "Sistema de Cafetería con Inventario y Kardex",
           description: "Aplicación web responsiva para gestionar inventarios completos de productos con seguimiento Kardex entre almacenes. Incluye funcionalidad de ventas para calcular ganancias, monitorizar stock y detectar escasez.",
-          image: "/img/cafeteria.png",
+          image: "/img/cafeteria.webp",
           tags: ["Django", "Bootstrap", "Tailwind CSS", "SQLite3"],
           liveUrl: "https://cafeteria.egatur.edu.pe/",
           githubUrl: "https://github.com/JosePizarro1/cafeteria.git",
@@ -207,7 +234,7 @@ export const translations = {
         {
           title: "Centro de Salud Esperanza",
           description: "Un sistema para el Centro de Salud Esperanza diseñado para monitorear servicios básicos para la población y garantizar un seguimiento y planificación precisos.",
-          image: "/img/centrosaludesperanza.png",
+          image: "/img/centrosaludesperanza.webp",
           tags: ["Python", "Django", "Bootstrap", "Tailwind CSS", "SQLite3"],
           liveUrl: "",
           githubUrl: "https://github.com/JosePizarro1/mcais.git",
@@ -347,6 +374,7 @@ export const translations = {
       home: "Home",
       about: "About",
       skills: "Skills",
+      certifications: "Certifications",
       solutions: "Solutions",
       projects: "Projects",
       contact: "Contact",
@@ -384,6 +412,33 @@ export const translations = {
       description: "I've worked with a variety of technologies in the web development world. Here's an overview of my technical skills and expertise.",
       core: "Core Competencies",
       tools: "Technologies & Tools"
+    },
+    certifications: {
+      title: "In Progress &",
+      highlight: "Goals",
+      description: "Continuous learning and specialization in Artificial Intelligence and Cloud.",
+      inProgressTitle: "In Progress",
+      goalsTitle: "Goals",
+      inProgressList: [
+        {
+          title: "AWS Certified AI Practitioner",
+          issuer: "AWS Certification",
+          badge: "/img/badges/aws-ai-practitioner.webp",
+          description: "Foundations of Generative AI, LLMs, Amazon Bedrock, and Cloud AI solutions.",
+          tags: ["GenAI", "Bedrock", "SageMaker", "Prompting"],
+          progress: 60
+        }
+      ],
+      goalsList: [
+        {
+          title: "AWS Certified Machine Learning Engineer",
+          issuer: "AWS Certification",
+          badge: "/img/badges/aws-machine-learning.webp",
+          description: "Deploying and scaling Machine Learning models and production MLOps pipelines on AWS.",
+          tags: ["MLOps", "Fine-Tuning", "Distributed ML"],
+          status: "Next Target"
+        }
+      ]
     },
     solutions: {
       title: "Enterprise",
@@ -466,19 +521,18 @@ export const translations = {
       list: [
         {
           title: "Control Lab Website System",
-          description: "An advanced laboratory management system and patient care web portal. Integrates patient tracking, medical reports, scheduling, and results delivery. Designed with modern user experience patterns.",
-          image: "/img/pagina_web_salud_laboratorio.png",
-          tags: ["React", "Python", "Supabase", "PostgreSQL"],
+          description: "An advanced laboratory management system and patient portal integrated with LIS (Laboratory Information System). Features patient tracking, automated test result delivery, medical scheduling, and clinical order synchronization.",
+          image: "/img/pagina_web_salud_laboratorio.webp",
+          tags: ["React", "Python", "Supabase", "PostgreSQL", "LIS Integration"],
           liveUrl: "",
           githubUrl: "",
           youtubeUrl: "",
-          brochureUrl: "/Control Lab -Broushure.pdf",
           isControlLab: true
         },
         {
           title: "Metropolitano - Medical Management System",
           description: "A robust and modern system for affiliate management, medical care tracking, and bulk data import via Excel. Features a premium UI with optimized performance and dynamic interactions.",
-          image: "/img/seguimiento_metropolitano.png",
+          image: "/img/seguimiento_metropolitano.webp",
           tags: ["Django", "Pandas", "Tailwind CSS", "DataTables.js", "PostgreSQL", "Vercel"],
           liveUrl: "https://seguimientoati.vercel.app/",
           githubUrl: "",
@@ -487,7 +541,7 @@ export const translations = {
         {
           title: "Customer Service & Booking Bot",
           description: "An intelligent customer service bot focused on automated reservation flows. Integrates Azure OCR to process and validate payment screenshots, and synchronizes with third-party services for scheduling and calendar management.",
-          image: "/img/imagen3.png",
+          image: "/img/bot_reservas.webp",
           tags: ["FastAPI", "LangGraph", "RAG & Embeddings", "Docker", "Azure DevOps", "WhatsApp API", "Azure OCR"],
           liveUrl: "",
           githubUrl: "",
@@ -496,7 +550,7 @@ export const translations = {
         {
           title: "P2P Currency Calculator",
           description: "An advanced calculator designed to manage remittances and arbitrage using the Binance P2P market. It features real-time rate tracking, custom profit margins, and multi-currency support.",
-          image: "/img/taza_calculadora.png",
+          image: "/img/taza_calculadora.webp",
           tags: ["Python", "Flask", "JavaScript", "Binance API", "Vercel"],
           liveUrl: "https://taza-calculadora.vercel.app",
           githubUrl: "https://github.com/JosePizarro1/TazaCalculadora.git",
@@ -505,7 +559,7 @@ export const translations = {
         {
           title: "Caja System",
           description: "A comprehensive system for managing income and expense flows, personnel, an expense calendar, and full accounting of payments.",
-          image: "/img/imagen1.png",
+          image: "/img/imagen1.webp",
           tags: ["Django", "Bootstrap", "Tailwind CSS", "Gmail API", "Google Drive API", "SQLite3"],
           liveUrl: "https://cajaegatur.pythonanywhere.com/",
           githubUrl: "https://github.com/JosePizarro1/cajachica",
@@ -514,7 +568,7 @@ export const translations = {
         {
           title: "GTI Internal Process Management Egatur",
           description: "An end-to-end internal workflow system for administrative documents, featuring digital signatures and role-based access control.",
-          image: "/img/imagen2.png",
+          image: "/img/imagen2.webp",
           tags: ["Django", "Bootstrap", "Tailwind CSS", "SQLite3", "Gmail API", "Google Drive API"],
           liveUrl: "https://gti.egatur.edu.pe/",
           githubUrl: "https://github.com/JosePizarro1/gti",
@@ -523,7 +577,7 @@ export const translations = {
         {
           title: "Gym Management/Academy System",
           description: "A responsive gym management/Academy platform with QR-based attendance, client management, payment processing, and membership tracking.",
-          image: "/img/imagen3.png",
+          image: "/img/imagen3.webp",
           tags: ["Django", "Bootstrap", "Tailwind CSS", "SQLite3"],
           liveUrl: "https://demogym.pythonanywhere.com/",
           githubUrl: "https://github.com/JosePizarro1/Gym",
@@ -532,7 +586,7 @@ export const translations = {
         {
           title: "NFT Chest Adventure Game MEDIEVAL",
           description: "A responsive NFT-based game with chest mechanics and character logic for gold creation. Reached over 1,800 active users during its peak phase.",
-          image: "/img/imagen4.png",
+          image: "/img/imagen4.webp",
           tags: ["Django", "Bootstrap", "Tailwind CSS", "SQLite3"],
           liveUrl: "https://medievalnft.pythonanywhere.com/login/?next=/",
           githubUrl: "",
@@ -541,7 +595,7 @@ export const translations = {
         {
           title: "Cafeteria Management System with Inventory and Kardex",
           description: "A fully responsive web application. This system manages a complete product inventory with Kardex tracking between warehouses. It includes sales functionality to calculate profits, monitor stock levels, and detect shortages.",
-          image: "/img/cafeteria.png",
+          image: "/img/cafeteria.webp",
           tags: ["Django", "Bootstrap", "Tailwind CSS", "SQLite3"],
           liveUrl: "https://cafeteria.egatur.edu.pe/",
           githubUrl: "https://github.com/JosePizarro1/cafeteria.git",
@@ -550,7 +604,7 @@ export const translations = {
         {
           title: "Centro Salud Esperanza",
           description: "A system for the Esperanza Health Center designed to monitor basic services for the population and ensure accurate tracking and planning.",
-          image: "/img/centrosaludesperanza.png",
+          image: "/img/centrosaludesperanza.webp",
           tags: ["Python", "Django", "Bootstrap", "Tailwind CSS", "SQLite3"],
           liveUrl: "",
           githubUrl: "https://github.com/JosePizarro1/mcais.git",

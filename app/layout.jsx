@@ -5,6 +5,7 @@ import { LanguageProvider } from "@/context/LanguageContext"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
+  metadataBase: new URL("https://portfolio-iota-rosy-30.vercel.app"),
   title: "Jose Pizarro | Software Engineer & FullStack Developer",
   description: "Desarrollador FullStack con +2 años de experiencia especializado en Python, React, Next.js y soluciones con IA (LangGraph, Automatizaciones).",
   keywords: ["Desarrollador FullStack", "Software Engineer", "React", "Next.js", "Python", "IA", "LangGraph", "Jose Pizarro"],
@@ -15,7 +16,7 @@ export const metadata = {
     siteName: "Jose Pizarro Portfolio",
     images: [
       {
-        url: "/img/seguimiento_metropolitano.png", // Usa una imagen tuya o de tu mejor proyecto
+        url: "/img/seguimiento_metropolitano.webp",
         width: 1200,
         height: 630,
         alt: "Jose Pizarro Portfolio Preview",
