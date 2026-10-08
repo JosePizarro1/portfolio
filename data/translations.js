@@ -44,29 +44,18 @@ export const translations = {
       tools: "Tecnologías y Herramientas"
     },
     certifications: {
-      title: "En Progreso &",
-      highlight: "Objetivos",
+      title: "Certificaciones &",
+      highlight: "Acreditaciones",
       description: "Especialización continua y certificaciones en Inteligencia Artificial y Cloud.",
-      inProgressTitle: "En Progreso",
-      goalsTitle: "Objetivos",
-      inProgressList: [
+      completedTitle: "Completada",
+      list: [
         {
           title: "AWS Certified AI Practitioner",
           issuer: "AWS Certification",
           badge: "/img/badges/aws-ai-practitioner.webp",
           description: "Fundamentos de IA generativa, LLMs, Amazon Bedrock y desarrollo de soluciones de IA en la nube.",
           tags: ["GenAI", "Bedrock", "SageMaker", "Prompting"],
-          progress: 60
-        }
-      ],
-      goalsList: [
-        {
-          title: "AWS Certified Machine Learning Engineer",
-          issuer: "AWS Certification",
-          badge: "/img/badges/aws-machine-learning.webp",
-          description: "Despliegue y optimización de modelos de Machine Learning y pipelines de MLOps en producción.",
-          tags: ["MLOps", "Fine-Tuning", "Distributed ML"],
-          status: "Próxima Meta"
+          progress: 100
         }
       ]
     },
@@ -414,29 +403,18 @@ export const translations = {
       tools: "Technologies & Tools"
     },
     certifications: {
-      title: "In Progress &",
-      highlight: "Goals",
+      title: "Certifications &",
+      highlight: "Credentials",
       description: "Continuous learning and specialization in Artificial Intelligence and Cloud.",
-      inProgressTitle: "In Progress",
-      goalsTitle: "Goals",
-      inProgressList: [
+      completedTitle: "Completed",
+      list: [
         {
           title: "AWS Certified AI Practitioner",
           issuer: "AWS Certification",
           badge: "/img/badges/aws-ai-practitioner.webp",
           description: "Foundations of Generative AI, LLMs, Amazon Bedrock, and Cloud AI solutions.",
           tags: ["GenAI", "Bedrock", "SageMaker", "Prompting"],
-          progress: 60
-        }
-      ],
-      goalsList: [
-        {
-          title: "AWS Certified Machine Learning Engineer",
-          issuer: "AWS Certification",
-          badge: "/img/badges/aws-machine-learning.webp",
-          description: "Deploying and scaling Machine Learning models and production MLOps pipelines on AWS.",
-          tags: ["MLOps", "Fine-Tuning", "Distributed ML"],
-          status: "Next Target"
+          progress: 100
         }
       ]
     },
