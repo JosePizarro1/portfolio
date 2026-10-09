@@ -377,14 +377,14 @@ export const translations = {
         "Django Specialist",
         "Tailwind and Bootstrap Expert"
       ],
-      description: "I develop end-to-end web applications—combining frontend interactivity with robust backend services—to deliver engaging, responsive, and scalable solutions with clean, maintainable code.",
+      description: "I develop end-to-end web applications, combining frontend interactivity with robust backend services to deliver engaging, responsive, and scalable solutions with clean, maintainable code.",
       viewWork: "View My Work",
       contactMe: "Contact Me"
     },
     about: {
       title: "About Me",
       subtitle: "FullStack Developer passionate about creating beautiful solutions and AI agents",
-      description: "Developer passionate about building responsive, accessible, and performant web applications. With a solid foundation in both frontend and backend technologies, I’m currently exploring the path that best aligns with my long-term goals—whether it's diving deeper into backend architecture or refining my frontend craft.",
+      description: "Developer passionate about building responsive, accessible, and performant web applications. With a solid foundation in both frontend and backend technologies, I’m currently exploring the path that best aligns with my long-term goals, whether it's diving deeper into backend architecture or refining my frontend craft.",
       location: "Tacna, Peru",
       downloadResume: "Download Resume (PDF)",
       hobbies: {
