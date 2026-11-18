@@ -278,83 +278,86 @@ export const translations = {
       subtitle: "Formato optimizado ATS (Estilo Oxford)",
       printButton: "Imprimir / Descargar PDF",
       location: "Tacna, Perú",
-      subtitleRole: "Software Engineer / FullStack Developer (+2 Años de Exp.)",
+      subtitleRole: "Software Engineer / Backend & AI Developer",
       sections: {
         summary: "Resumen Profesional",
         experience: "Experiencia Laboral",
-        skills: "Habilidades Técnicas e Idiomas",
+        skills: "Habilidades Técnicas",
         education: "Educación y Certificaciones",
-        extraCertifications: "Certificaciones Extra"
+        extraCertifications: "Certificaciones"
       },
-      summaryParagraph: "Ingeniero Informático y Desarrollador FullStack con <strong>más de 2 años de experiencia</strong> sólida diseñando e implementando arquitecturas web y soluciones tecnológicas de extremo a extremo. Altamente competente en los ecosistemas de <strong>Python y JavaScript (React, Next.js, Django, FastAPI)</strong> y en bases de datos relacionales. Cuento con probada experiencia desarrollando aplicaciones modulares, automatizando flujos corporativos, implementando seguridad avanzada (<strong>Salesforce Shield</strong>, cifrado y auditoría) e integrando <strong>Agentes de IA Generativa</strong> (LangGraph), <strong>WebSockets</strong> y <strong>Webhooks</strong> en tiempo real. Destacado por traducir problemas complejos de negocio en interfaces refinadas y productos altamente escalables impulsados por inteligencia artificial y sólidas prácticas de ingeniería.",
+      summaryParagraph: "Ingeniero de Sistemas y Desarrollador Backend / Full Stack con más de 2 años de experiencia en arquitecturas escalables y desacopladas. Especializado en el ecosistema backend con Java (Spring Boot, Arquitectura Hexagonal), .NET Core y Python (Django), junto al desarrollo frontend modular (React, Next.js, Microfrontends). Experiencia probada en pruebas automatizadas (xUnit, Moq), orquestación de Agentes de IA con LangGraph y flujos modernos de ingeniería asistidos por IA.",
       experienceList: [
         {
           company: "TANNUA",
-          role: "Desarrollador (IA & Backend)",
-          date: "Nov. 2025 - Actualidad",
+          role: "Desarrollador Backend, Microservicios & IA",
+          date: "Nov. 2025 — Presente",
           bullets: [
-            "Lideré el despliegue de un Agente de IA Corporativo integrando potentes sistemas de <strong>RAG (Retrieval-Augmented Generation) y Embeddings</strong> para respuestas orgánicas, orquestados en flujos dinámicos mediante Python y LangGraph.",
-            "Diseñé e implementé la arquitectura de <strong>Webhooks</strong> para integraciones con <strong>Meta (WhatsApp Cloud API y Facebook Leads)</strong>, automatizando la captura de prospectos (leads) y su ingesta directa al CRM en tiempo real.",
-            "Reforcé el cumplimiento de seguridad y gobernanza de datos en <strong>Salesforce</strong> mediante la implementación de <strong>Salesforce Shield</strong>; configurando encriptación de plataforma (Platform Encryption), auditorías y monitoreo de eventos (Event Monitoring) utilizando clases <strong>Apex</strong> personalizadas.",
-            "Establecí canales de comunicación bidireccional en tiempo real utilizando <strong>WebSockets</strong> para transmitir notificaciones instantáneas de eventos de los agentes de IA y actualizaciones de citas.",
-            "Aceleré la gestión de citas multi-servicio implementando un Motor de Búsqueda Secuencial inteligente, sincronizado en tiempo real con la API de AgendaPro.",
-            "Sistematicé la validación de pagos entrenando modelos predictivos con Azure Document Intelligence (OCR) para lograr el reconocimiento preciso de recibos bancarios.",
-            "Automaticé tareas críticas de infraestructura creando servicios en segundo plano y notificaciones, gestionando todo el ciclo de despliegue mediante <strong>Docker</strong> y flujos CI/CD en <strong>Azure DevOps</strong>."
+            "Diseñé e implementé microservicios bajo Arquitectura Hexagonal en Java (Spring Boot) y servicios backend en .NET Core (C#), aplicando JPA/Hibernate, Entity Framework Core y funciones SQL directas, garantizando cobertura con pruebas unitarias y de integración mediante JUnit 5, Mockito, xUnit y Moq.",
+            "Participé en el desarrollo de un Agente de IA Conversacional orquestando flujos de estados complejos con Python y LangGraph, integrando validación predictiva de comprobantes bancarios mediante modelos de Azure Document Intelligence (OCR).",
+            "Implementé la integración de interfaces modulares mediante Microfrontends, canales en tiempo real con WebSockets y pipelines CI/CD automatizados con Docker en Azure DevOps."
           ]
         },
         {
           company: "RIVERCON",
-          role: "Desarrollador Frontend/Mobile",
-          date: "Mayo 2025 - Oct. 2025",
+          role: "Desarrollador Mobile & Frontend",
+          date: "May. 2025 — Oct. 2025",
           bullets: [
-            "Desarrollo eficiente de aplicaciones móviles colaborativas utilizando <strong>Flutter, FlutterFlow</strong> y arquitecturas de <strong>Firebase</strong>.",
-            "Creación de 'Horzifrut' (sistema logístico móvil de inventarios) y 'Zodiac' (red social bilingüe con autenticación telefónica/email)."
+            "Desarrollé aplicaciones móviles de alto rendimiento con Flutter y Firebase, entregando el sistema logístico de inventarios 'Horzifrut' y la red social bilingüe 'Zodiac'.",
+            "Diseñé la arquitectura de estado y autenticación multicanal, reduciendo tiempos de respuesta y optimizando la experiencia móvil."
           ]
         },
         {
           company: "EGATUR",
           role: "Desarrollador Full Stack",
-          date: "Sept. 2024 - Mayo 2025",
+          date: "Sep. 2024 — May. 2025",
           bullets: [
-            "Centralicé el control de flujos de ingresos directivos mediante la construcción de los portales 'Trámite Interno GTI' y 'Caja Chica', escalados en <strong>Python y Django</strong>.",
-            "Reduje la carga manual operativa al sincronizar la generación de reportes automáticos conectando bases de datos SQLite3 con las robustas APIs de <strong>Google Workspace (Gmail y Drive)</strong>.",
-            "Refactoricé patrones de diseño adoptando un fuerte modelo <strong>MVC</strong>, promoviendo despliegues seguros y estructurados."
+            "Construí los portales de gestión operativa y tesorería en Python/Django bajo arquitectura MVC, digitalizando flujos manuales corporativos.",
+            "Automaticé la generación y auditoría de reportes financieros conectando bases de datos relacionales con APIs de Google Workspace (Drive y Gmail)."
           ]
         },
         {
-          company: "Independiente / Web3",
-          role: "Game & Web Developer",
-          date: "Feb. 2022 - Ago. 2022",
+          company: "MEDIEVAL (Web3)",
+          role: "Desarrollador Full Stack & Backend",
+          date: "Feb. 2022 — Ago. 2022",
           bullets: [
-            "Despliegue de un exitoso videojuego integral Web3 (NFT) ('Medieval'), alcanzando más de 2,000 usuarios hiper-activos distribuidos en MySQL.",
-            "Manejo integral de lógica de compra/venta y asincronía en aperturas de cofres generados proceduralmente.",
-            "Automaticé la sincronización de datos y el flujo de reportes corporativos integrando <strong>Salesforce con Excel, Looker Studio, Slack y Google Apps Script</strong> para agilizar la toma de decisiones y alertas de canales.",
-            "Diseñé y desarrollé un <strong>Sistema de Gestión de Tickets</strong> interno a medida dentro de Salesforce para centralizar e incrementar la eficiencia del soporte operativo."
+            "Diseñé e implementé la arquitectura backend en Django y MySQL para una plataforma de juegos con más de 2,000 usuarios activos concurrentes.",
+            "Gestioné lógica transaccional asíncrona segura, integrando flujos de soporte y métricas operativas centralizadas."
           ]
         }
       ],
       skillsLabels: {
-        languagesCore: "Lenguajes y Core",
-        front: "Frameworks Frontend",
-        back: "Frameworks Backend",
+        languagesCore: "Lenguajes",
+        languagesCoreVal: "Java, C# (.NET), Python, JavaScript, TypeScript, SQL.",
+        back: "Backend & Arquitectura",
+        backVal: "Spring Boot, Arquitectura Hexagonal, .NET Core, Entity Framework, Hibernate / JPA, Django, Microservicios, REST APIs.",
+        testing: "Testing & Calidad",
+        testingVal: "JUnit 5 & Mockito (Java) | xUnit & Moq (.NET) | Pytest (Python) | TDD, Pruebas Unitarias e Integración.",
+        front: "Frontend",
+        frontVal: "React, Next.js, Microfrontends, Tailwind CSS, Flutter.",
+        infra: "Cloud, IA & DevOps",
+        infraVal: "AWS (Certified AI Practitioner), LangGraph, Azure Document Intelligence, Azure DevOps, Docker, WebSockets, CI/CD.",
         db: "Bases de Datos",
-        infra: "Infraestructura, DevOps e IA",
-        apis: "APIs y Otras Herramientas",
+        dbVal: "PostgreSQL, MongoDB (NoSQL), MySQL, SQL Server, SQLite.",
+        apis: "Herramientas & AI Tooling",
+        apisVal: "Antigravity, Cursor, Claude Code, Git, GitHub, Postman, Power BI, Salesforce Shield (Apex).",
         languages: "Idiomas",
-        languagesVal: "Español (Nativo), Inglés (B2 Upper Intermediate - Certificado EF SET)."
+        languagesVal: "Español (Nativo), Inglés (B2 Intermedio Profesional - Certificado EF SET)."
       },
       educationList: [
         {
           school: "Universidad Nacional Jorge Basadre Grohmann",
-          degree: "Bachiller en Ingeniería Informática y Sistemas"
+          degree: "Bachiller en Ingeniería en Informática y Sistemas"
         },
         {
           school: "COAR Moquegua",
-          degree: "Egresado (2019)"
+          degree: "Egresado de Excelencia Académica (2019)"
         }
       ],
       extraBullets: [
-        "Análisis de Datos con Power BI: Certificación completada (Udemy - 30 horas)."
+        "AWS Certified AI Practitioner — Amazon Web Services (Credencial oficial completada).",
+        "AWS Certified Cloud Practitioner — Amazon Web Services (En preparación / Próxima a certificar).",
+        "Análisis de Datos con Power BI — Certificación completada (Udemy, 30 horas)."
       ]
     }
   },
@@ -637,68 +640,69 @@ export const translations = {
       subtitle: "ATS Optimized Format (Oxford Style)",
       printButton: "Print / Download PDF",
       location: "Tacna, Peru",
-      subtitleRole: "Software Engineer / FullStack Developer (+2 Years Exp.)",
+      subtitleRole: "Software Engineer / Backend & AI Developer",
       sections: {
         summary: "Professional Summary",
         experience: "Work Experience",
-        skills: "Technical Skills & Languages",
+        skills: "Technical Skills",
         education: "Education and Certifications",
-        extraCertifications: "Extra Certifications"
+        extraCertifications: "Certifications"
       },
-      summaryParagraph: "Computer Engineer and FullStack Developer with <strong>over 2 years of solid experience</strong> designing and deploying end-to-end web architectures and technological solutions. Highly proficient in <strong>Python and JavaScript ecosystems (React, Next.js, Django, FastAPI)</strong> and relational databases. Proven track record in building modular applications, automating corporate workflows, implementing advanced security (<strong>Salesforce Shield</strong>, encryption, and auditing), and integrating Generative AI Agents (LangGraph), <strong>WebSockets</strong>, and real-time <strong>Webhooks</strong>. Recognized for translating complex business requirements into refined interfaces and highly scalable products powered by AI and solid software engineering practices.",
+      summaryParagraph: "Systems Engineer and Backend / Full Stack Developer with over 2 years of experience designing scalable, decoupled software architectures. Specialized in backend engineering with Java (Spring Boot, Hexagonal Architecture), .NET Core, and Python (Django), backed by modular frontend development (React, Next.js, Microfrontends). Proven experience in automated testing (JUnit 5, xUnit, Pytest), AI Agent orchestration with LangGraph, and modern AI-augmented developer workflows.",
       experienceList: [
         {
           company: "TANNUA",
-          role: "Developer (AI & Backend)",
-          date: "Nov. 2025 - Present",
+          role: "Backend, Microservices & AI Developer",
+          date: "Nov. 2025 — Present",
           bullets: [
-            "Led the deployment of a Corporate AI Agent integrating powerful <strong>RAG (Retrieval-Augmented Generation) and Embeddings</strong> systems for organic replies, orchestrated in dynamic flows via Python and LangGraph.",
-            "Designed and implemented a <strong>Webhook-based</strong> architecture for <strong>Meta integrations (WhatsApp Cloud API and Facebook Leads)</strong>, automating real-time lead capture and ingestion into the CRM.",
-            "Enforced data security and governance compliance in <strong>Salesforce</strong> by implementing <strong>Salesforce Shield</strong>, configuring Platform Encryption, security audits, and Event Monitoring using custom <strong>Apex</strong> classes.",
-            "Established real-time bidirectional communication channels using <strong>WebSockets</strong> to broadcast instant notifications of AI agent events and appointment updates.",
-            "Accelerated multi-service appointment scheduling by implementing an intelligent Sequential Search Engine, synchronized in real-time with the AgendaPro API.",
-            "Systematized payment validation by training predictive models with Azure Document Intelligence (OCR) to achieve precise bank receipt recognition.",
-            "Automated critical infrastructure tasks by creating background services and notifications, managing the entire deployment lifecycle via <strong>Docker</strong> and CI/CD pipelines in <strong>Azure DevOps</strong>."
+            "Designed and implemented microservices using Hexagonal Architecture in Java (Spring Boot) and backend services in .NET Core (C#), utilizing JPA/Hibernate, Entity Framework Core, and direct SQL functions, ensuring code coverage with unit and integration testing via JUnit 5, Mockito, xUnit, and Moq.",
+            "Participated in the engineering of an advanced conversational AI Agent orchestrating state graphs with Python and LangGraph, integrating predictive bank receipt verification with Azure Document Intelligence (OCR).",
+            "Implemented modular interfaces using Microfrontends, bidirectional real-time channels via WebSockets, and automated CI/CD pipelines with Docker on Azure DevOps."
           ]
         },
         {
           company: "RIVERCON",
-          role: "Frontend/Mobile Developer",
-          date: "May 2025 - Oct. 2025",
+          role: "Mobile & Frontend Developer",
+          date: "May 2025 — Oct. 2025",
           bullets: [
-            "Efficiently developed collaborative mobile applications using <strong>Flutter, FlutterFlow</strong>, and <strong>Firebase</strong> architectures.",
-            "Created 'Horzifrut' (a mobile logistics inventory system) and 'Zodiac' (a bilingual social network with phone/email authentication)."
+            "Developed high-performance mobile applications using Flutter and Firebase, delivering 'Horzifrut' (logistics inventory management) and 'Zodiac' (bilingual social network).",
+            "Architected app state and multi-provider authentication, optimizing user retention and mobile UX responsiveness."
           ]
         },
         {
           company: "EGATUR",
           role: "Full Stack Developer",
-          date: "Sept. 2024 - May 2025",
+          date: "Sep. 2024 — May 2025",
           bullets: [
-            "Centralized the tracking of executive revenue streams by building the 'Trámite Interno GTI' and 'Caja Chica' portals, scaled in <strong>Python and Django</strong>.",
-            "Reduced manual operational overhead by synchronizing automated report generation connecting SQLite3 databases with Google Workspace APIs <strong>(Gmail and Drive)</strong>.",
-            "Refactored design patterns to adopt a robust <strong>MVC</strong> model, promoting secure and structured deployments."
+            "Engineered administrative and treasury management platforms in Python/Django under MVC architecture, digitizing manual corporate operations.",
+            "Automated automated reporting and financial audits by connecting relational databases with Google Workspace APIs (Drive and Gmail)."
           ]
         },
         {
-          company: "Independent / Web3",
-          role: "Game & Web Developer",
-          date: "Feb. 2022 - Aug. 2022",
+          company: "MEDIEVAL (Web3)",
+          role: "Full Stack & Backend Developer",
+          date: "Feb. 2022 — Aug. 2022",
           bullets: [
-            "Deployed a successful end-to-end Web3 (NFT) game ('Medieval'), reaching over 2,000 hyper-active users distributed on MySQL.",
-            "Managed buy/sell transaction logic and asynchronous orchestration for procedurally generated chest openings.",
-            "Automated data synchronization and corporate reporting flows by integrating <strong>Salesforce with Excel, Looker Studio, Slack, and Google Apps Script</strong> to streamline operational decision-making.",
-            "Designed and developed a custom internal <strong>Ticket Management System</strong> within Salesforce to centralize and increase the efficiency of operations support."
+            "Architected backend infrastructure with Django and MySQL for a Web3 gaming platform with over 2,000 active concurrent users.",
+            "Managed secure asynchronous transaction logic and integrated centralized support and monitoring workflows."
           ]
         }
       ],
       skillsLabels: {
-        languagesCore: "Languages & Core",
-        front: "Frontend Frameworks",
-        back: "Backend Frameworks",
+        languagesCore: "Languages",
+        languagesCoreVal: "Java, C# (.NET), Python, JavaScript, TypeScript, SQL.",
+        back: "Backend & Architecture",
+        backVal: "Spring Boot, Hexagonal Architecture, .NET Core, Entity Framework, Hibernate / JPA, Django, Microservices, REST APIs.",
+        testing: "Testing & Quality",
+        testingVal: "JUnit 5 & Mockito (Java) | xUnit & Moq (.NET) | Pytest (Python) | TDD, Unit & Integration Testing.",
+        front: "Frontend",
+        frontVal: "React, Next.js, Microfrontends, Tailwind CSS, Flutter.",
+        infra: "Cloud, AI & DevOps",
+        infraVal: "AWS (Certified AI Practitioner), LangGraph, Azure Document Intelligence, Azure DevOps, Docker, WebSockets, CI/CD.",
         db: "Databases",
-        infra: "Infrastructure, DevOps & AI",
-        apis: "APIs & Other Tools",
+        dbVal: "PostgreSQL, MongoDB (NoSQL), MySQL, SQL Server, SQLite.",
+        apis: "Tools & AI Tooling",
+        apisVal: "Antigravity, Cursor, Claude Code, Git, GitHub, Postman, Power BI, Salesforce Shield (Apex).",
         languages: "Languages",
         languagesVal: "Spanish (Native), English (B2 Upper Intermediate - Certified EF SET)."
       },
@@ -709,11 +713,13 @@ export const translations = {
         },
         {
           school: "COAR Moquegua",
-          degree: "Graduate (2019)"
+          degree: "Academic Excellence Graduate (2019)"
         }
       ],
       extraBullets: [
-        "Data Analysis with Power BI: Completed Certification (Udemy - 30 hours)."
+        "AWS Certified AI Practitioner — Amazon Web Services (Official credential completed).",
+        "AWS Certified Cloud Practitioner — Amazon Web Services (In progress / Target certification).",
+        "Data Analysis with Power BI — Completed Certification (Udemy, 30 hours)."
       ]
     }
   }

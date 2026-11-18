@@ -27,6 +27,7 @@ export default function Navbar() {
     { name: t("nav.solutions"), href: "#solutions" },
     { name: t("nav.projects"), href: "#projects" },
     { name: t("nav.contact"), href: "#contact" },
+    { name: t("nav.cv"), href: "/cv" },
   ]
 
   const LanguageSwitcher = () => (

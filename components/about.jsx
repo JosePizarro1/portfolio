@@ -111,11 +111,17 @@ export default function About() {
             </div>
           </div>
 
-          <div className="text-center">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-center">
+            <Link
+              href="/cv"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium hover:from-purple-500 hover:to-blue-500 transition-all hover:scale-105 shadow-lg shadow-purple-500/25"
+            >
+              <FileText size={18} /> Ver CV Online (Oxford ATS)
+            </Link>
             <a
               href="/pdf/CV_JOSE_PIZARRO.pdf"
               download
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-purple-500 text-white font-medium hover:bg-purple-600 transition-all hover:scale-105"
+              className="inline-flex items-center gap-2 px-6 py-4 rounded-lg bg-zinc-800 text-zinc-300 font-medium hover:bg-zinc-700 hover:text-white transition-all border border-zinc-700"
             >
               <FileText size={18} /> {t("about.downloadResume")}
             </a>
