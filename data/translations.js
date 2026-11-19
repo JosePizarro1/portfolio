@@ -1,6 +1,10 @@
 export const translations = {
   es: {
     nav: {
+      navigation: "Navegación principal",
+      language: "Idioma",
+      openMenu: "Abrir menú",
+      closeMenu: "Cerrar menú",
       home: "Inicio",
       about: "Sobre Mí",
       skills: "Habilidades",
@@ -11,6 +15,15 @@ export const translations = {
       cv: "Mi CV"
     },
     hero: {
+      medieval: "Aventura de Cofres NFT Medieval",
+      headlineFirst: "Desarrollo web.",
+      headlineSecond: "Inteligencia aplicada.",
+      editorialDescription: "Desarrollo aplicaciones web, integraciones y agentes de IA para convertir procesos complejos en soluciones claras.",
+      viewProjects: "Ver proyectos",
+      featuredProjects: "Una selección de mis proyectos",
+      reservations: "Asistente de reservas",
+      realProject: "Proyecto real",
+      focusAreas: "Aplicaciones web · Integraciones · Agentes de IA",
       welcome: "Bienvenido a mi portafolio",
       greeting: "Hola, soy",
       roles: [
@@ -27,6 +40,7 @@ export const translations = {
       subtitle: "Desarrollador FullStack apasionado por crear hermosas soluciones y agentes de IA",
       description: "Desarrollador apasionado por crear aplicaciones web responsivas, accesibles y de alto rendimiento. Con una base sólida en tecnologías frontend y backend, actualmente exploro el camino que mejor se alinea con mis objetivos a largo plazo, ya sea profundizar en la arquitectura del backend o perfeccionar mi desarrollo frontend.",
       location: "Tacna, Perú",
+      viewResume: "Ver CV",
       downloadResume: "Descargar CV (PDF)",
       hobbies: {
         coding: "Código Libre",
@@ -41,21 +55,42 @@ export const translations = {
       highlight: "Habilidades",
       description: "He trabajado con una variedad de tecnologías en el mundo del desarrollo web. Aquí tienes un resumen de mis habilidades técnicas y experiencia.",
       core: "Competencias Principales",
-      tools: "Tecnologías y Herramientas"
+      mostUsed: "De las tecnologías que más uso",
+      tools: "Tecnologías y Herramientas",
+      aiAgents: "Agentes de IA & Clientes MCP",
+      aiAgentsDesc: "Herramientas y clientes de desarrollo asistido por IA que utilizo activamente"
     },
     certifications: {
+      eyebrow: "Aprendizaje continuo",
+      completedLabel: "obtenidas",
+      inProgressLabel: "en proceso",
       title: "Certificaciones &",
       highlight: "Acreditaciones",
-      description: "Especialización continua y certificaciones en Inteligencia Artificial y Cloud.",
-      completedTitle: "Completada",
+      description: "Especialización continua y credenciales oficiales en Inteligencia Artificial, Cloud y Bases de Datos.",
       list: [
         {
+          id: "aws-ai-practitioner",
           title: "AWS Certified AI Practitioner",
-          issuer: "AWS Certification",
+          issuer: "Amazon Web Services",
           badge: "/img/badges/aws-ai-practitioner.webp",
-          description: "Fundamentos de IA generativa, LLMs, Amazon Bedrock y desarrollo de soluciones de IA en la nube.",
-          tags: ["GenAI", "Bedrock", "SageMaker", "Prompting"],
-          progress: 100
+          status: "completed",
+          statusLabel: "Certificado Oficial"
+        },
+        {
+          id: "mongodb-overview",
+          title: "MongoDB Overview: Core Concepts and Architecture",
+          issuer: "MongoDB",
+          badge: "/img/badges/mongodb-overview.png",
+          status: "completed",
+          statusLabel: "Acreditación Oficial"
+        },
+        {
+          id: "aws-cloud-practitioner",
+          title: "AWS Certified Cloud Practitioner",
+          issuer: "Amazon Web Services",
+          badge: "/img/badges/aws-cloud-practitioner.png",
+          status: "in-progress",
+          statusLabel: "En proceso"
         }
       ]
     },
@@ -356,6 +391,7 @@ export const translations = {
       ],
       extraBullets: [
         "AWS Certified AI Practitioner — Amazon Web Services (Credencial oficial completada).",
+        "MongoDB Overview: Core Concepts and Architecture — MongoDB (Acreditación oficial completada).",
         "AWS Certified Cloud Practitioner — Amazon Web Services (En preparación / Próxima a certificar).",
         "Análisis de Datos con Power BI — Certificación completada (Udemy, 30 horas)."
       ]
@@ -363,6 +399,10 @@ export const translations = {
   },
   en: {
     nav: {
+      navigation: "Main navigation",
+      language: "Language",
+      openMenu: "Open menu",
+      closeMenu: "Close menu",
       home: "Home",
       about: "About",
       skills: "Skills",
@@ -373,6 +413,15 @@ export const translations = {
       cv: "My CV"
     },
     hero: {
+      medieval: "Medieval NFT Chest Adventure",
+      headlineFirst: "Web development.",
+      headlineSecond: "Applied intelligence.",
+      editorialDescription: "I build web applications, integrations and AI agents that turn complex processes into clear solutions.",
+      viewProjects: "View projects",
+      featuredProjects: "A selection of my projects",
+      reservations: "Booking assistant",
+      realProject: "Real project",
+      focusAreas: "Web applications · Integrations · AI agents",
       welcome: "Welcome to my portfolio",
       greeting: "Hi, I'm",
       roles: [
@@ -389,6 +438,7 @@ export const translations = {
       subtitle: "FullStack Developer passionate about creating beautiful solutions and AI agents",
       description: "Developer passionate about building responsive, accessible, and performant web applications. With a solid foundation in both frontend and backend technologies, I’m currently exploring the path that best aligns with my long-term goals, whether it's diving deeper into backend architecture or refining my frontend craft.",
       location: "Tacna, Peru",
+      viewResume: "View CV",
       downloadResume: "Download Resume (PDF)",
       hobbies: {
         coding: "Open Source",
@@ -403,21 +453,42 @@ export const translations = {
       highlight: "Skills",
       description: "I've worked with a variety of technologies in the web development world. Here's an overview of my technical skills and expertise.",
       core: "Core Competencies",
-      tools: "Technologies & Tools"
+      mostUsed: "One of my most-used technologies",
+      tools: "Technologies & Tools",
+      aiAgents: "AI Agents & MCP Clients",
+      aiAgentsDesc: "AI tooling and MCP clients integrated into my engineering workflow"
     },
     certifications: {
+      eyebrow: "Continuous learning",
+      completedLabel: "earned",
+      inProgressLabel: "in progress",
       title: "Certifications &",
       highlight: "Credentials",
-      description: "Continuous learning and specialization in Artificial Intelligence and Cloud.",
-      completedTitle: "Completed",
+      description: "Continuous learning and official credentials in Artificial Intelligence, Cloud, and Modern Databases.",
       list: [
         {
+          id: "aws-ai-practitioner",
           title: "AWS Certified AI Practitioner",
-          issuer: "AWS Certification",
+          issuer: "Amazon Web Services",
           badge: "/img/badges/aws-ai-practitioner.webp",
-          description: "Foundations of Generative AI, LLMs, Amazon Bedrock, and Cloud AI solutions.",
-          tags: ["GenAI", "Bedrock", "SageMaker", "Prompting"],
-          progress: 100
+          status: "completed",
+          statusLabel: "Official Certification"
+        },
+        {
+          id: "mongodb-overview",
+          title: "MongoDB Overview: Core Concepts and Architecture",
+          issuer: "MongoDB",
+          badge: "/img/badges/mongodb-overview.png",
+          status: "completed",
+          statusLabel: "Official Credential"
+        },
+        {
+          id: "aws-cloud-practitioner",
+          title: "AWS Certified Cloud Practitioner",
+          issuer: "Amazon Web Services",
+          badge: "/img/badges/aws-cloud-practitioner.png",
+          status: "in-progress",
+          statusLabel: "In progress"
         }
       ]
     },
@@ -718,6 +789,7 @@ export const translations = {
       ],
       extraBullets: [
         "AWS Certified AI Practitioner — Amazon Web Services (Official credential completed).",
+        "MongoDB Overview: Core Concepts and Architecture — MongoDB (Official credential completed).",
         "AWS Certified Cloud Practitioner — Amazon Web Services (In progress / Target certification).",
         "Data Analysis with Power BI — Completed Certification (Udemy, 30 hours)."
       ]

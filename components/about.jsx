@@ -1,14 +1,14 @@
 "use client"
 
 import { useRef, useEffect, useState } from "react"
-import { FileText, Mail, MapPin, Gamepad2, Headphones, BookOpen, Dumbbell, Code2 } from "lucide-react"
+import { FileText, Mail, MapPin, Gamepad2, Headphones, BookOpen, Dumbbell, Code2, ArrowUpRight } from "lucide-react"
 import { useLanguage } from "@/context/LanguageContext"
 import Link from "next/link"
 
 export default function About() {
   const [isVisible, setIsVisible] = useState(false)
   const ref = useRef(null)
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -26,7 +26,7 @@ export default function About() {
   }, [])
 
   return (
-    <section id="about" className="py-20 bg-gray-900">
+    <section id="about" className="ed-section relative">
       <div className="container mx-auto px-4 md:px-6">
         <div
           ref={ref}
@@ -36,10 +36,9 @@ export default function About() {
         >
           <div className="text-center mb-10">
             <h2 className="text-sm uppercase tracking-wider text-purple-500 mb-2">{t("about.title")}</h2>
-            <h3 className="text-3xl md:text-4xl font-bold mb-6">
+            <h3 className="ed-heading mb-6">
               {t("about.subtitle")}
             </h3>
-            <div className="w-20 h-1 bg-purple-500 mx-auto"></div>
           </div>
 
           <p className="text-gray-300 mb-8 text-lg leading-relaxed text-center">
@@ -50,16 +49,16 @@ export default function About() {
               <MapPin className="text-purple-500" size={24} />
               <span className="text-gray-300">{t("about.location")}</span>
             </div>
-            <div className="flex items-center gap-3 bg-gray-800 p-4 rounded-lg w-max">
-              <Mail className="text-purple-500" size={24} />
-              <span className="text-gray-300">josepizarroarca@gmail.com</span>
+            <div className="flex items-center gap-3 bg-gray-800 p-4 rounded-lg min-w-0">
+              <Mail className="text-purple-500 shrink-0" size={24} />
+              <a className="ed-about-email" href="mailto:josepizarroarca@gmail.com">josepizarroarca@gmail.com</a>
             </div>
           </div>
 
           {/* Hobbies & Interests */}
           <div className="mb-12 mt-12">
-            <h4 className="text-center text-xs uppercase tracking-wider text-purple-400 font-bold mb-6">
-              {useLanguage().language === "es" ? "Intereses y Pasatiempos" : "Interests & Hobbies"}
+            <h4 className="text-center text-xs uppercase tracking-wider ed-about-label font-semibold mb-6">
+              {language === "es" ? "Intereses y Pasatiempos" : "Interests & Hobbies"}
             </h4>
             <div className="flex flex-wrap justify-center gap-4">
               {[
@@ -83,26 +82,17 @@ export default function About() {
 
                 if (isGaming) {
                   return (
-                    <Link
-                      href="/gaming"
-                      key={hobby.key}
-                      className="group/gaming relative p-[1px] overflow-hidden rounded-xl bg-gray-800/40 hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.35)] cursor-pointer"
-                    >
-                      {/* Moving light border beam ray */}
-                      <div className="absolute inset-[-1000%] bg-[conic-gradient(from_90deg_at_50%_50%,#c084fc_0%,#a855f7_50%,transparent_100%)] opacity-70 group-hover/gaming:opacity-100 transition-opacity duration-300" style={{ animation: 'spin 5s linear infinite' }} />
-                      
-                      {/* Inner mask card */}
-                      <div className="relative flex items-center gap-2 px-4 py-2.5 bg-gray-900 rounded-[11px] w-full h-full">
-                        {cardContent}
-                      </div>
-                    </Link>
+                    <a href="/gaming" key={hobby.key} className="ed-hobby ed-hobby--link">
+                      {cardContent}
+                      <ArrowUpRight size={14} aria-hidden="true" />
+                    </a>
                   )
                 }
 
                 return (
                   <div
                     key={hobby.key}
-                    className="flex items-center gap-2 px-4 py-2.5 bg-gray-800/40 border border-white/5 rounded-xl hover:bg-gray-800/80 hover:border-purple-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_-3px_rgba(168,85,247,0.2)]"
+                    className="ed-hobby"
                   >
                     {cardContent}
                   </div>
@@ -114,14 +104,14 @@ export default function About() {
           <div className="flex flex-wrap items-center justify-center gap-4 text-center">
             <Link
               href="/cv"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium hover:from-purple-500 hover:to-blue-500 transition-all hover:scale-105 shadow-lg shadow-purple-500/25"
+              className="editorial-button"
             >
-              <FileText size={18} /> Ver CV Online (Oxford ATS)
+              <FileText size={18} /> {t("about.viewResume")}
             </Link>
             <a
               href="/pdf/CV_JOSE_PIZARRO.pdf"
               download
-              className="inline-flex items-center gap-2 px-6 py-4 rounded-lg bg-zinc-800 text-zinc-300 font-medium hover:bg-zinc-700 hover:text-white transition-all border border-zinc-700"
+              className="editorial-button editorial-button--outline"
             >
               <FileText size={18} /> {t("about.downloadResume")}
             </a>

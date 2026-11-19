@@ -1,0 +1,171 @@
+/* Dimensional app tiles: CSS surfaces and inline vector logos, no bitmap files. */
+.embossed-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  isolation: isolate;
+  border-radius: 25%;
+  border: 1px solid rgba(255, 255, 255, .18);
+  background: radial-gradient(ellipse at 28% 0%, #36373b 0%, #202125 38%, #101114 100%);
+  box-shadow: inset 0 2px 2px rgba(255,255,255,.24), inset 2px 0 3px rgba(255,255,255,.08), inset 0 -3px 4px rgba(0,0,0,.8), 0 5px 10px rgba(0,0,0,.32);
+}
+.embossed-icon::before {
+  content: "";
+  position: absolute;
+  inset: 3%;
+  border-radius: 23%;
+  border-top: 1px solid rgba(255,255,255,.08);
+  background: linear-gradient(145deg, rgba(255,255,255,.035), transparent 45%, rgba(0,0,0,.14));
+  pointer-events: none;
+}
+.embossed-icon__mark {
+  position: relative;
+  width: 64%;
+  height: 64%;
+  color: var(--icon-color, #61dafb);
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,.3)) drop-shadow(0 2px 0 rgba(0,0,0,.45)) drop-shadow(0 4px 2px rgba(0,0,0,.5));
+}
+
+/* All core skills stay visible; two centered rows on desktop. */
+.core-skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px 12px;
+  max-width: 1056px;
+  margin-inline: auto;
+}
+.core-skill {
+  display: flex;
+  flex: 0 0 calc((100% - 24px) / 3);
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+.core-skill__icon {
+  width: 80px;
+  height: 80px;
+  transition: transform 220ms ease, filter 220ms ease;
+}
+.core-skill__name {
+  color: #a1a1aa;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  transition: color 220ms ease;
+}
+@media (hover: hover) {
+  .core-skill:hover .core-skill__icon {
+    transform: translateY(-6px) scale(1.06);
+    filter: brightness(1.12);
+  }
+  .core-skill:hover .core-skill__name { color: #fff; }
+}
+@media (min-width: 640px) {
+  .core-skills-grid { gap: 32px 24px; }
+  .core-skill { flex-basis: calc((100% - 96px) / 5); }
+  .core-skill__icon { width: 88px; height: 88px; }
+  .core-skill__name { font-size: 14px; }
+}
+@media (min-width: 1024px) {
+  .core-skill { flex-basis: calc((100% - 144px) / 7); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .core-skill__icon, .core-skill__name { transition: none; }
+  .core-skill:hover .core-skill__icon { transform: none; }
+}
+
+/* Small vector badge marks the technologies used most often. */
+.embossed-icon__flame {
+  position: absolute;
+  z-index: 1;
+  top: -9px;
+  right: -7px;
+  width: 24px;
+  height: 28px;
+  overflow: visible;
+  pointer-events: none;
+  filter: drop-shadow(0 0 4px rgba(251,107,36,.4));
+}
+.usage-flame__outer, .usage-flame__inner {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: usage-flame-flicker 1.6s ease-in-out infinite;
+}
+.usage-flame__inner { animation-delay: -.65s; animation-duration: 1.15s; }
+@keyframes usage-flame-flicker {
+  0%, 100% { transform: rotate(-3deg) scale(.96, 1); }
+  35% { transform: rotate(3deg) scale(1.03, .93); }
+  70% { transform: rotate(-1deg) scale(.97, 1.06); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .usage-flame__outer, .usage-flame__inner { animation: none; }
+}
+
+.agent-icons-track { display: flex; align-items: center; gap: 24px; padding-right: 24px; }
+@media (min-width: 640px) {
+  .agent-icons-track { gap: 32px; padding-right: 32px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .agent-icons-track { animation: none; flex-wrap: wrap; justify-content: center; width: 100%; padding-right: 0; }
+  .agent-icons-track > [aria-hidden="true"] { display: none; }
+  .agent-icons-track .embossed-icon { transition: none; }
+}
+
+/* Agent collection: satin graphite, a machined rim and colored reflected light. */
+.agent-icon-shell { width: 88px; height: 88px; perspective: 650px; }
+.embossed-icon--premium {
+  border-radius: 27%;
+  border: 1px solid rgba(255,255,255,.25);
+  background:
+    radial-gradient(ellipse at 50% 120%, color-mix(in srgb, var(--icon-color) 18%, transparent), transparent 65%),
+    linear-gradient(150deg, #434449 0%, #24252b 20%, #18191e 49%, #0d0e12 100%);
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.65),
+    inset 1px 0 1px rgba(255,255,255,.16),
+    inset -1px 0 1px rgba(255,255,255,.07),
+    inset 0 -2px 2px #000,
+    0 3px 0 #08090c,
+    0 4px 0 rgba(255,255,255,.07),
+    0 10px 16px -6px rgba(0,0,0,.8);
+  transition: transform 280ms ease, box-shadow 280ms ease;
+}
+.embossed-icon--premium::before {
+  inset: 4px;
+  border-radius: 23%;
+  border: 1px solid rgba(255,255,255,.055);
+  border-top-color: rgba(255,255,255,.13);
+  background: linear-gradient(140deg, rgba(255,255,255,.055), transparent 38%, rgba(0,0,0,.2));
+}
+.embossed-icon--premium::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(118deg, transparent 12%, rgba(255,255,255,.09) 28%, transparent 43%);
+  opacity: .5;
+  transition: opacity 280ms ease;
+}
+.embossed-icon--premium .embossed-icon__mark {
+  width: 59%;
+  height: 59%;
+  transform: translateY(-1px);
+  filter: drop-shadow(0 2px 1px rgba(0,0,0,.5));
+}
+@media (hover: hover) {
+  .agent-icon-shell:hover .embossed-icon--premium {
+    transform: rotateX(5deg) rotateY(-7deg) translateY(-2px);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,.7), inset 0 -2px 2px #000, 0 3px 0 #08090c, 0 15px 24px -8px color-mix(in srgb, var(--icon-color) 24%, transparent);
+  }
+  .agent-icon-shell:hover .embossed-icon--premium::after { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .embossed-icon--premium, .embossed-icon--premium::after { transition: none; }
+  .agent-icon-shell:hover .embossed-icon--premium { transform: none; }
+}

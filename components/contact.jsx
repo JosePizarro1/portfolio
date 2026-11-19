@@ -44,12 +44,12 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 bg-gray-950">
+    <section id="contact" className="ed-section relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="ed-heading mb-4">
             {t("contact.title")}{" "}
-            <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
+            <span className="ed-heading-accent">
               {t("contact.highlight")}
             </span>
           </h2>
@@ -219,10 +219,10 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSending}
-                className={`w-full px-6 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium shadow-lg shadow-purple-500/20 hover:shadow-purple-500/30 transition-all flex items-center justify-center gap-2 ${isSending ? "opacity-70 cursor-not-allowed" : ""}`}
+                className={`editorial-button w-full ${isSending ? "opacity-70 cursor-not-allowed" : ""}`}
               >
                 {isSending ? t("contact.sending") : t("contact.send")}
-                <Send size={16} />
+                <Send size={16} aria-hidden="true" />
               </button>
               {status && (
                 <p className={`text-sm ${status.ok ? "text-green-400" : "text-red-400"}`}>

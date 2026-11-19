@@ -1,3 +1,8 @@
+@import "../components/editorial-sections.css";
+@import "../components/editorial-home.css";
+@import "../components/certifications.css";
+@import "../components/skill-icon.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -127,3 +132,22 @@
   -webkit-mask-composite: destination-out;
 }
 
+/* Infinite Marquee Carousel */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}

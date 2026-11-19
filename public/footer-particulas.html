@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jose Pizarro · dev</title>
+    <style>
+        body {
+            margin: 0;
+            background: #050505;
+            font-family: "Inter Tight", "Inter", "Helvetica Neue", Arial, system-ui, sans-serif;
+            color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .alf-demo {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            box-sizing: border-box;
+            width: 100%;
+            min-height: 100svh;
+            background: #050505;
+        }
+
+        .alf-root {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            isolation: isolate;
+            container-type: inline-size;
+            background: var(--alf-bg, #050505);
+            color: var(--alf-ink, #ffffff);
+            user-select: none;
+        }
+
+        .alf-root canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            max-width: none;
+            pointer-events: none;
+        }
+
+        .alf-top {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: minmax(200px, 1.35fr) repeat(3, minmax(140px, 1fr));
+            gap: 24px;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: clamp(28px, 4cqw, 48px) clamp(24px, 5cqw, 64px) 0;
+        }
+
+        .alf-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            padding-right: 16px;
+        }
+
+        .alf-logo-row {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .alf-brand-name {
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+        }
+
+        .alf-tagline {
+            margin: 0;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.65);
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        .alf-col {
+            border-left: 1px solid rgba(255, 255, 255, 0.13);
+            padding-left: clamp(16px, 2cqw, 26px);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .alf-col h3 {
+            margin: 0 0 4px;
+            font-family: "JetBrains Mono", "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        .alf-col ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .alf-link {
+            color: rgba(255, 255, 255, 0.88);
+            text-decoration: none;
+            font-size: 13.5px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            transition: color 0.2s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .alf-link:hover {
+            color: var(--alf-accent, #ff7a29);
+            transform: translateX(2px);
+        }
+
+        .alf-bottom {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: clamp(14px, 2.2cqw, 24px);
+            z-index: 2;
+            text-align: center;
+            font-size: 11.5px;
+            color: rgba(255, 255, 255, 0.42);
+            letter-spacing: 0.01em;
+            pointer-events: none;
+        }
+
+        @container (max-width: 760px) {
+            .alf-top {
+                grid-template-columns: 1fr 1fr;
+                row-gap: 24px;
+            }
+            .alf-brand {
+                grid-column: 1 / -1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="alf-demo">
+        <footer class="alf-root" style="height: 680px;">
+            <canvas id="asciiCanvas" aria-hidden="true"></canvas>
+
+            <div class="alf-top">
+                <div class="alf-brand">
+                    <div class="alf-logo-row">
+                        <span class="alf-brand-name">Jose Pizarro</span>
+                    </div>
+                    <p class="alf-tagline" data-en="Web development and applied intelligence.">Desarrollo web e inteligencia aplicada.</p>
+                </div>
+
+                <nav class="alf-col" aria-labelledby="footer-nav">
+                    <h3 id="footer-nav" data-en="Navigation">Navegación</h3>
+                    <ul>
+                        <li><a class="alf-link" href="/#about" target="_parent" data-en="About">Sobre mí</a></li>
+                        <li><a class="alf-link" href="/#solutions" target="_parent" data-en="Solutions">Soluciones</a></li>
+                        <li><a class="alf-link" href="/#skills" target="_parent" data-en="Skills">Habilidades</a></li>
+                        <li><a class="alf-link" href="/#certifications" target="_parent" data-en="Certifications">Certificaciones</a></li>
+                        <li><a class="alf-link" href="/#projects" target="_parent" data-en="Projects">Proyectos</a></li>
+                    </ul>
+                </nav>
+
+                <nav class="alf-col" aria-labelledby="footer-contact">
+                    <h3 id="footer-contact" data-en="Contact">Contacto</h3>
+                    <ul>
+                        <li><a class="alf-link" href="/#contact" target="_parent" data-en="Contact form">Formulario</a></li>
+                        <li><a class="alf-link" href="mailto:josepizarroarca@gmail.com" target="_parent" data-en="Email">Correo</a></li>
+                        <li><a class="alf-link" href="tel:+51945770325" target="_parent">+51 945 770 325</a></li>
+                        <li data-en="Tacna, Peru">Tacna, Perú</li>
+                    </ul>
+                </nav>
+
+                <nav class="alf-col" aria-labelledby="footer-profiles">
+                    <h3 id="footer-profiles" data-en="Profiles">Perfiles</h3>
+                    <ul>
+                        <li><a class="alf-link" href="https://github.com/JosePizarro1/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                        <li><a class="alf-link" href="https://www.linkedin.com/in/jose-alfredo-pizarro-rabanal-56aaaa189/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                        <li><a class="alf-link" href="/cv" target="_parent">CV</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="alf-bottom">© <span id="footer-year"></span> Jose Pizarro · <a class="alf-link" href="/#home" target="_parent" data-en="Back to top">Volver al inicio</a></div>
+        </footer>
+    </div>
+
+    <script>
+        const language = new URLSearchParams(location.search).get("lang");
+        if (language === "en") {
+            document.documentElement.lang = "en";
+            document.querySelectorAll("[data-en]").forEach(element => {
+                element.textContent = element.dataset.en;
+            });
+        }
+        document.getElementById("footer-year").textContent = new Date().getFullYear();
+
+        const canvas = document.getElementById('asciiCanvas');
+        const ctx = canvas.getContext('2d');
+        const root = document.querySelector('.alf-root');
+
+        const ASCII_RAMP = " .:-=+*#%&$X0@";
+
+        let w = 0, h = 0, dpr = 1;
+        let tx = -9999, ty = -9999, lx = -9999, ly = -9999;
+        let curRadius = 0, targetRadius = 0;
+        let sceneData = new Uint8ClampedArray(0);
+        let staticLayer = null;
+
+        function alfLuminance(r, g, b) {
+            return Math.max(0, Math.min(1, (0.299 * r + 0.587 * g + 0.114 * b) / 255));
+        }
+
+        function alfPickChar(lum) {
+            if (lum < 0.04) return " ";
+            const idx = Math.min(ASCII_RAMP.length - 1, Math.floor(lum * (ASCII_RAMP.length - 1)));
+            return ASCII_RAMP[idx];
+        }
+
+        function alfRidgeNoise(x, seed) {
+            const s1 = Math.sin(x * 1.7 + seed) * 0.5 + Math.cos(x * 0.8 - seed * 1.3) * 0.5;
+            const s2 = Math.sin(x * 4.3 + seed * 2.1) * 0.28 + Math.cos(x * 7.1 + seed) * 0.14;
+            const s3 = Math.sin(x * 15.7 - seed * 3.4) * 0.07;
+            return 1 - Math.abs(s1 + s2 + s3);
+        }
+
+        function paintProceduralMountains(g, width, height) {
+            g.fillStyle = "#050505";
+            g.fillRect(0, 0, width, height);
+
+            const skyGrad = g.createLinearGradient(0, height * 0.12, 0, height * 0.78);
+            skyGrad.addColorStop(0, "#050505");
+            skyGrad.addColorStop(0.28, "#2e0f06");
+            skyGrad.addColorStop(0.5, "#8a300e");
+            skyGrad.addColorStop(0.68, "#bd5a21");
+            skyGrad.addColorStop(0.88, "#140804");
+            skyGrad.addColorStop(1, "#050505");
+            g.fillStyle = skyGrad;
+            g.fillRect(0, 0, width, height);
+
+            const peakProfile = (nx, layer) => {
+                const leftPeak = Math.exp(-Math.pow((nx - 0.16) / 0.16, 2)) * 0.95;
+                const leftShoulder = Math.exp(-Math.pow((nx - 0.34) / 0.14, 2)) * 0.62;
+                const rightPeak = Math.exp(-Math.pow((nx - 0.86) / 0.15, 2)) * 0.92;
+                const rightShoulder = Math.exp(-Math.pow((nx - 0.68) / 0.14, 2)) * 0.48;
+                const ridge = alfRidgeNoise(nx * 5.2, layer * 1.9 + 0.7);
+                return Math.max(leftPeak, leftShoulder, rightPeak, rightShoulder, 0.18) * (0.68 + 0.32 * ridge);
+            };
+
+            const step = 2;
+            for (let x = 0; x < width; x += step) {
+                const nx = x / Math.max(1, width);
+                const p1 = peakProfile(nx, 1);
+                const p1Next = peakProfile((x + step * 2) / Math.max(1, width), 1);
+                const slope = p1Next - p1;
+
+                const topY = height * (0.66 - p1 * 0.5);
+                const bottomY = height * 0.9;
+
+                for (let y = Math.floor(topY); y < bottomY; y += 3) {
+                    const depth = (y - topY) / Math.max(1, bottomY - topY);
+                    const micro = alfRidgeNoise(nx * 24 + depth * 6, y * 0.03);
+                    const sunHit = Math.max(0, (slope * 18 + 0.38) * (1 - depth * 0.85) * micro);
+
+                    let r = 16, gr = 9, b = 11;
+                    if (sunHit > 0.35) {
+                        // Cumbres y laderas iluminadas en tonos ámbar y fuego intenso (sin blanco/nieve)
+                        r = Math.min(245, Math.round(180 + sunHit * 65));
+                        gr = Math.min(130, Math.round(90 + sunHit * 40));
+                        b = Math.min(45, Math.round(25 + sunHit * 20));
+                    } else if (sunHit > 0.12) {
+                        r = Math.round(85 + sunHit * 240);
+                        gr = Math.round(28 + sunHit * 90);
+                        b = Math.round(14 + sunHit * 30);
+                    } else {
+                        const shade = Math.max(0, 1 - depth * 1.15);
+                        r = Math.round(14 * shade);
+                        gr = Math.round(10 * shade);
+                        b = Math.round(15 * shade);
+                    }
+                    g.fillStyle = `rgb(${r},${gr},${b})`;
+                    g.fillRect(x, y, step, 3);
+                }
+            }
+        }
+
+        function buildLayout() {
+            w = Math.max(1, root.clientWidth);
+            h = Math.max(1, root.clientHeight);
+            dpr = Math.min(window.devicePixelRatio || 1, 2);
+            canvas.width = Math.round(w * dpr);
+            canvas.height = Math.round(h * dpr);
+
+            const sceneCanvas = document.createElement("canvas");
+            sceneCanvas.width = w;
+            sceneCanvas.height = h;
+            const sCtx = sceneCanvas.getContext("2d", { willReadFrequently: true });
+            paintProceduralMountains(sCtx, w, h);
+            sceneData = sCtx.getImageData(0, 0, w, h).data;
+
+            staticLayer = document.createElement("canvas");
+            staticLayer.width = Math.round(w * dpr);
+            staticLayer.height = Math.round(h * dpr);
+            const stCtx = staticLayer.getContext("2d");
+            stCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            stCtx.fillStyle = "#050505";
+            stCtx.fillRect(0, 0, w, h);
+
+            const cw = 4, ch = 5;
+            for (let y = 0; y < h; y += ch) {
+                for (let x = 0; x < w; x += cw) {
+                    const idx = (Math.min(h - 1, y + 2) * w + Math.min(w - 1, x + 2)) * 4;
+                    const mr = sceneData[idx], mg = sceneData[idx + 1], mb = sceneData[idx + 2];
+                    const lum = alfLuminance(mr, mg, mb);
+                    if (lum > 0.025) {
+                        stCtx.fillStyle = `rgb(${mr},${mg},${mb})`;
+                        stCtx.fillRect(x, y, cw - 0.8, ch - 1.1);
+                    }
+                }
+            }
+        }
+
+        function draw() {
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+            if (staticLayer) {
+                ctx.drawImage(staticLayer, 0, 0, w, h);
+            } else {
+                ctx.fillStyle = "#050505";
+                ctx.fillRect(0, 0, w, h);
+            }
+
+            lx += (tx - lx) * 0.18;
+            ly += (ty - ly) * 0.18;
+            curRadius += (targetRadius - curRadius) * 0.16;
+
+            if (curRadius > 1.5) {
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(lx, ly, curRadius, 0, Math.PI * 2);
+                ctx.clip();
+
+                ctx.fillStyle = "#080504";
+                ctx.fillRect(lx - curRadius, ly - curRadius, curRadius * 2, curRadius * 2);
+
+                const cellW = 8, cellH = 11;
+                const startCol = Math.max(0, Math.floor((lx - curRadius) / cellW));
+                const endCol = Math.min(Math.ceil(w / cellW), Math.ceil((lx + curRadius) / cellW));
+                const startRow = Math.max(0, Math.floor((ly - curRadius) / cellH));
+                const endRow = Math.min(Math.ceil(h / cellH), Math.ceil((ly + curRadius) / cellH));
+
+                ctx.font = `700 10px monospace`;
+                ctx.textBaseline = "top";
+
+                for (let r = startRow; r < endRow; r++) {
+                    const py = r * cellH;
+                    for (let c = startCol; c < endCol; c++) {
+                        const px = c * cellW;
+                        const sx = Math.min(w - 1, Math.max(0, Math.floor(px + cellW * 0.5)));
+                        const sy = Math.min(h - 1, Math.max(0, Math.floor(py + cellH * 0.5)));
+                        const pIdx = (sy * w + sx) * 4;
+
+                        const mr = sceneData[pIdx], mg = sceneData[pIdx + 1], mb = sceneData[pIdx + 2];
+                        const sceneLum = alfLuminance(mr, mg, mb);
+                        const effectiveLum = sceneLum;
+                        const ch = alfPickChar(effectiveLum);
+                        if (ch === " ") continue;
+
+                        const boostR = Math.min(255, Math.round(mr * 1.35 + 45));
+                        const boostG = Math.min(230, Math.round(mg * 1.15 + 18));
+                        const boostB = Math.min(180, Math.round(mb * 0.9 + 8));
+                        ctx.fillStyle = effectiveLum > 0.55 ? `rgb(${boostR},${boostG},${boostB})` : `rgba(${boostR},${boostG},${boostB},0.72)`;
+                        ctx.fillText(ch, px, py);
+                    }
+                }
+
+                ctx.strokeStyle = "rgba(255, 130, 50, 0.28)";
+                ctx.lineWidth = 1.2;
+                ctx.beginPath();
+                ctx.arc(lx, ly, curRadius - 0.6, 0, Math.PI * 2);
+                ctx.stroke();
+                ctx.restore();
+            }
+
+        }
+
+        let raf = 0;
+        function tick() {
+            raf = 0;
+            draw();
+            const moving = Math.hypot(tx - lx, ty - ly) > 0.35 || Math.abs(targetRadius - curRadius) > 0.35 || targetRadius > 0;
+            if (moving) {
+                raf = requestAnimationFrame(tick);
+            }
+        }
+
+        function wake() {
+            if (!raf) raf = requestAnimationFrame(tick);
+        }
+
+        root.addEventListener("pointermove", (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const nx = ((e.clientX - rect.left) * w) / (rect.width || w);
+            const ny = ((e.clientY - rect.top) * h) / (rect.height || h);
+            if (tx < -1000) { lx = nx; ly = ny; }
+            tx = nx; ty = ny;
+            targetRadius = 135;
+            wake();
+        });
+
+        root.addEventListener("pointerleave", () => {
+            targetRadius = 0;
+            wake();
+        });
+
+        window.addEventListener("resize", () => {
+            buildLayout();
+            draw();
+        });
+
+        buildLayout();
+        draw();
+    </script>
+</body>
+</html>
